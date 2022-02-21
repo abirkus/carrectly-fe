@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import {
   Control,
   FieldErrors,
@@ -7,10 +7,12 @@ import {
   UseFormWatch,
 } from 'react-hook-form';
 import { List, ListItem, Typography } from '@mui/material';
-import { CarMake, carDatabaseApi, CarModel } from 'apiWrappers/carDatabaseApi';
+import { carDatabaseApi } from 'apiWrappers/carDatabaseApi';
+import { CarMake, CarModel } from '../../../utils/types';
 import ControlledInputField from './Fields/ControlledInputField';
 import ControlledRadioGroupField from './Fields/ControlledRadioGroupField';
 import ControlledAutocompleteField from './Fields/ControlledAutoCompleteField';
+import { Store } from '../../../utils/Store';
 import moment from 'moment';
 
 interface CarInformationFromProps {
@@ -35,6 +37,8 @@ export const CarInformationFrom: React.FC<CarInformationFromProps> = ({
   const [carModels, setCarModels] = useState<CarModel[]>([]);
   const [loading, setLoading] = useState(false);
 
+  const { dispatch } = useContext(Store);
+
   useEffect(() => {
     setLoading(true);
     carDatabaseApi.getAllMakes().then((carMakes) => {
@@ -52,6 +56,10 @@ export const CarInformationFrom: React.FC<CarInformationFromProps> = ({
             .getAllModels(carMake, watchCarYear)
             .then((carModels) => {
               setCarModels(carModels);
+              dispatch({
+                type: 'SAVE_MODEL_CATEGORIES',
+                payload: carModels,
+              });
               if (
                 watchCarModel &&
                 !carModels.find((carModel) => carModel.Model === watchCarModel)

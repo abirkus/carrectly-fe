@@ -1,10 +1,5 @@
 import axios from 'axios';
-export type CarMake = string;
-
-export type CarModel = {
-  Model: string;
-  Category: string;
-};
+import { CarMake, CarModel } from '../../utils/types';
 
 export const carDatabaseApi = {
   getAllMakes: async () => {

@@ -46,9 +46,16 @@ export type ServiceDatesType = {
   returnDate: Date;
 };
 
+export type CarMake = string;
+
+export type CarModel = {
+  Model: string;
+  Category: string;
+};
+
 export type StateType = {
   cartItems: ServiceType[];
-  carSize: string;
+  modelCategories: CarModel[];
   shippingAddress: OrderDetailsType;
 };
 

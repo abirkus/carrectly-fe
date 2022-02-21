@@ -6,11 +6,9 @@ const initialState = {
   cartItems: Cookies.get('cartItems')
     ? JSON.parse(Cookies.get('cartItems') as string)
     : [],
-  carSize: Cookies.get('carSize')
-    ? {
-        ...JSON.parse(Cookies.get('carSize') as string),
-      }
-    : 'small',
+  modelCategories: Cookies.get('modelCategories')
+    ? JSON.parse(Cookies.get('modelCategories') as string)
+    : [],
   shippingAddress: Cookies.get('shippingAddress')
     ? {
         ...JSON.parse(Cookies.get('shippingAddress') as string),
@@ -24,7 +22,7 @@ export const Store = createContext<{
   state: StateType;
   dispatch: React.Dispatch<any>;
 }>({
-  state: initialState as StateType,
+  state: initialState,
   dispatch: () => null,
 });
 
@@ -36,7 +34,7 @@ function reducer(state: StateType, action: ActionType) {
       Cookies.set('cartItems', JSON.stringify(newCartItems));
       return {
         cartItems: newCartItems,
-        carSize: state.carSize,
+        modelCategories: state.modelCategories,
         shippingAddress: state.shippingAddress,
       };
     }
@@ -47,7 +45,7 @@ function reducer(state: StateType, action: ActionType) {
       Cookies.set('cartItems', JSON.stringify(cartItems));
       return {
         cartItems: cartItems,
-        carSize: state.carSize,
+        modelCategories: state.modelCategories,
         shippingAddress: state.shippingAddress,
       };
     }
@@ -55,23 +53,23 @@ function reducer(state: StateType, action: ActionType) {
       const data = action.payload;
       Cookies.set('shippingAddress', JSON.stringify({ ...data }));
       return {
-        cartItems: [...state.cartItems],
-        carSize: state.carSize,
+        cartItems: state.cartItems,
+        modelCategories: state.modelCategories,
         shippingAddress: {
           ...data,
         },
       };
-    case 'SAVE_CAR_SIZE':
-      const size = action.payload;
-      Cookies.set('carSize', size);
+    case 'SAVE_MODEL_CATEGORIES':
+      const categoriesArray = action.payload;
+      Cookies.set('modelCategories', JSON.stringify(categoriesArray));
       return {
-        cartItems: [...state.cartItems],
-        carSize: size,
+        cartItems: state.cartItems,
+        modelCategories: categoriesArray,
         shippingAddress: { ...state.shippingAddress },
       };
     case 'CART_CLEAR':
       Cookies.remove('cartItems');
-      return { ...state, cartItems: [] };
+      return { ...state, cartItems: [], modelCategories: [] };
     default:
       return state;
   }
