@@ -1,7 +1,8 @@
-import { Button, List, ListItem } from '@mui/material';
-import React, { useContext, FC } from 'react';
+import { Button, List, ListItem, Box, Link } from '@mui/material';
+import React, { useContext, FC, useState } from 'react';
 import { Store } from '../../../../utils/Store';
 import { GridRenderCellParams } from '@mui/x-data-grid';
+import ServiceDetailsModal from '../../Modal/ServiceDetailsModal';
 
 type cellAttributes = {
   props: GridRenderCellParams;
@@ -40,5 +41,26 @@ export const PriceRangeCell: FC<cellAttributes> = ({ props }) => {
           ) => <ListItem key={`price-variant-${i}`}>${el}</ListItem>
         )}
     </List>
+  );
+};
+
+export const NameModalCell: FC<cellAttributes> = ({ props }) => {
+  const serviceObject = props.row;
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+  return (
+    <Box>
+      <Link onClick={handleOpen}>{serviceObject.name}</Link>
+      <ServiceDetailsModal
+        open={open}
+        onClose={handleClose}
+        serviceDetails={serviceObject}
+      />
+    </Box>
   );
 };

@@ -46,10 +46,7 @@ export const CarInformationFrom: React.FC<CarInformationFromProps> = ({
   useEffect(() => {
     const fetchCarModels = async () => {
       if (watchCarYear && watchCarMake && carMakes.length) {
-        const carMake = carMakes.find(
-          // (make) => make.Make_Name === watchCarMake
-          (make) => make === watchCarMake
-        );
+        const carMake = carMakes.find((make) => make === watchCarMake);
         if (carMake) {
           carDatabaseApi
             .getAllModels(carMake, watchCarYear)
@@ -57,10 +54,7 @@ export const CarInformationFrom: React.FC<CarInformationFromProps> = ({
               setCarModels(carModels);
               if (
                 watchCarModel &&
-                !carModels.find(
-                  // (carModel) => carModel.Model_Name === watchCarModel
-                  (carModel) => carModel.Model === watchCarModel
-                )
+                !carModels.find((carModel) => carModel.Model === watchCarModel)
               ) {
                 setValue('carModel', null);
               }

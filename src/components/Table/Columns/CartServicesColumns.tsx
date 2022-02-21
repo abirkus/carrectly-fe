@@ -1,9 +1,20 @@
 import React from 'react';
 import { GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
-import { PriceRangeCell, DeleteServiceCell } from '../Cells/TableCells';
+import {
+  PriceRangeCell,
+  DeleteServiceCell,
+  NameModalCell,
+} from '../Cells/TableCells';
 
 const cartTableColumns: GridColDef[] = [
-  { field: 'name', headerName: 'Service Name', flex: 1 },
+  {
+    field: 'name',
+    headerName: 'Service Name',
+    flex: 1,
+    renderCell: (params: GridRenderCellParams) => (
+      <NameModalCell props={params} />
+    ),
+  },
   {
     field: 'price',
     headerName: 'Price Range (small | medium | large)',
