@@ -57,6 +57,7 @@ export type StateType = {
   cartItems: ServiceType[];
   modelCategories: CarModel[];
   shippingAddress: OrderDetailsType;
+  carSize?: string;
 };
 
 export type ActionType = {

@@ -21,7 +21,7 @@ export default function Shipping() {
   } = useForm();
   const router = useRouter();
   const { state, dispatch } = useContext(Store);
-  const { shippingAddress } = state;
+  const { shippingAddress, modelCategories } = state;
 
   useEffect(() => {
     Object.keys(shippingAddress).map((key) =>
@@ -34,6 +34,30 @@ export default function Shipping() {
       type: 'SAVE_SHIPPING_ADDRESS',
       payload: data,
     });
+    const small = ['Sedan', 'Coupe', 'Convertible', 'Wagon', 'Hatchback'];
+    const medium = ['SUV'];
+    const large = ['Van/Minivan', 'XL', 'Pickup'];
+
+    const singleModel = modelCategories.find(
+      (model) => model.Model === data.carModel
+    );
+
+    const category = singleModel?.Category.split(',') || ['Sedan'];
+    let size = '';
+
+    if (small.includes(category[0])) {
+      size = 'small';
+    } else if (medium.includes(category[0])) {
+      size = 'medium';
+    } else if (large.includes(category[0])) {
+      size = 'large';
+    }
+
+    dispatch({
+      type: 'SAVE_CAR_SIZE',
+      payload: size,
+    });
+
     router.push('/placeorder');
   };
 

@@ -25,21 +25,16 @@ export const DeleteServiceCell: FC<cellAttributes> = ({ props }) => {
 };
 
 export const PriceRangeCell: FC<cellAttributes> = ({ props }) => {
+  const { state } = useContext(Store);
+  let whichPrice = 0;
+  if (state.carSize === 'medium') {
+    whichPrice = 1;
+  } else if (state.carSize === 'large') {
+    whichPrice = 2;
+  }
   return (
     <List sx={{ display: 'flex', flexDirection: 'row' }}>
-      {props.row.price &&
-        props.row.price.map(
-          (
-            el:
-              | boolean
-              | React.ReactChild
-              | React.ReactFragment
-              | React.ReactPortal
-              | null
-              | undefined,
-            i: any
-          ) => <ListItem key={`price-variant-${i}`}>${el}</ListItem>
-        )}
+      <ListItem>${props.row.price[whichPrice]}</ListItem>
     </List>
   );
 };

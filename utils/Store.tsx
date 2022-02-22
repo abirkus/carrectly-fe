@@ -9,6 +9,7 @@ const initialState = {
   modelCategories: Cookies.get('modelCategories')
     ? JSON.parse(Cookies.get('modelCategories') as string)
     : [],
+  carSize: Cookies.get('carSize') ? Cookies.get('carSize') : '',
   shippingAddress: Cookies.get('shippingAddress')
     ? {
         ...JSON.parse(Cookies.get('shippingAddress') as string),
@@ -36,6 +37,7 @@ function reducer(state: StateType, action: ActionType) {
         cartItems: newCartItems,
         modelCategories: state.modelCategories,
         shippingAddress: state.shippingAddress,
+        carSize: state.carSize,
       };
     }
     case 'CART_REMOVE_ITEM': {
@@ -47,6 +49,7 @@ function reducer(state: StateType, action: ActionType) {
         cartItems: cartItems,
         modelCategories: state.modelCategories,
         shippingAddress: state.shippingAddress,
+        carSize: state.carSize,
       };
     }
     case 'SAVE_SHIPPING_ADDRESS':
@@ -55,6 +58,7 @@ function reducer(state: StateType, action: ActionType) {
       return {
         cartItems: state.cartItems,
         modelCategories: state.modelCategories,
+        carSize: state.carSize,
         shippingAddress: {
           ...data,
         },
@@ -65,11 +69,21 @@ function reducer(state: StateType, action: ActionType) {
       return {
         cartItems: state.cartItems,
         modelCategories: categoriesArray,
-        shippingAddress: { ...state.shippingAddress },
+        carSize: state.carSize,
+        shippingAddress: state.shippingAddress,
+      };
+    case 'SAVE_CAR_SIZE':
+      const sizeString = action.payload;
+      Cookies.set('carSize', sizeString);
+      return {
+        cartItems: state.cartItems,
+        modelCategories: state.modelCategories,
+        carSize: sizeString,
+        shippingAddress: state.shippingAddress,
       };
     case 'CART_CLEAR':
       Cookies.remove('cartItems');
-      return { ...state, cartItems: [], modelCategories: [] };
+      return { ...state, cartItems: [], modelCategories: [], carSize: '' };
     default:
       return state;
   }
