@@ -10,7 +10,9 @@ import { List, ListItem, Typography } from '@mui/material';
 import { CarMake, carDatabaseApi, CarModel } from 'apiWrappers/carDatabaseApi';
 import ControlledInputField from './Fields/ControlledInputField';
 import ControlledRadioGroupField from './Fields/ControlledRadioGroupField';
-import ControlledAutocompleteField from './Fields/ControlledAutoCompleteField';
+import ControlledAutocompleteField, {
+  AutoCompleteProps,
+} from './Fields/ControlledAutoCompleteField';
 import moment from 'moment';
 
 interface CarInformationFromProps {
@@ -45,27 +47,20 @@ export const CarInformationFrom: React.FC<CarInformationFromProps> = ({
 
   useEffect(() => {
     const fetchCarModels = async () => {
-      if (watchCarYear && watchCarMake && carMakes.length) {
-        const carMake = carMakes.find(
-          // (make) => make.Make_Name === watchCarMake
-          (make) => make === watchCarMake
-        );
-        if (carMake) {
-          carDatabaseApi
-            .getAllModels(carMake, watchCarYear)
-            .then((carModels) => {
-              setCarModels(carModels);
-              if (
-                watchCarModel &&
-                !carModels.find(
-                  // (carModel) => carModel.Model_Name === watchCarModel
-                  (carModel) => carModel.Model === watchCarModel
-                )
-              ) {
-                setValue('carModel', null);
-              }
-            });
-        }
+      if (watchCarYear && watchCarMake) {
+        carDatabaseApi
+          .getAllModels(watchCarMake, watchCarYear)
+          .then((carModels) => {
+            setCarModels(carModels);
+            if (
+              watchCarModel &&
+              !carModels.find(
+                (carModel) => carModel.Model === watchCarModel.Model
+              )
+            ) {
+              setValue('carModel', null);
+            }
+          });
       }
     };
 
@@ -73,7 +68,7 @@ export const CarInformationFrom: React.FC<CarInformationFromProps> = ({
     fetchCarModels().finally(() => setLoading(false));
   }, [watchCarYear, watchCarMake, carMakes]);
 
-  const vehicleFields = [
+  const vehicleFields: AutoCompleteProps<string | CarModel>[] = [
     {
       fieldName: 'carYear',
       fieldLabel: 'Car Year',
@@ -84,16 +79,19 @@ export const CarInformationFrom: React.FC<CarInformationFromProps> = ({
     {
       fieldName: 'carMake',
       fieldLabel: 'Car Make',
-      loading,
-      options: carMakes?.map((make) => make) || [],
+      options: carMakes,
       disabled: !Boolean(watchCarYear),
     },
     {
       fieldName: 'carModel',
       fieldLabel: 'Car Model',
-      loading,
-      options: carModels?.map((model) => model.Model) || [],
+      options: carModels,
       disabled: !Boolean(watchCarMake),
+      labelOptions: {
+        getOptionLabel: (option) => (option as CarModel).Model,
+        isOptionEqualToValue: (option, value) =>
+          (option as CarModel).Model === (value as CarModel).Model,
+      },
     },
   ];
 
@@ -112,12 +110,9 @@ export const CarInformationFrom: React.FC<CarInformationFromProps> = ({
             <ControlledAutocompleteField
               control={control}
               errors={errors}
+              loading={loading}
               required
-              loading={field.loading}
-              disabled={field.disabled}
-              fieldName={field.fieldName}
-              fieldLabel={field.fieldLabel}
-              options={field.options}
+              {...field}
             />
           </ListItem>
         ))}

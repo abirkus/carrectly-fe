@@ -60,7 +60,6 @@ const Layout: FC<Props> = ({ children, title }) => {
           margin: 0,
           padding: 0,
           minHeight: '100vh',
-          width: '100vw',
         }}
       >
         <AppBar position="static">
@@ -77,7 +76,7 @@ const Layout: FC<Props> = ({ children, title }) => {
                   display="flex"
                   flexDirection="column"
                   justifyContent="center"
-                  sx={{ width: 200 }}
+                  sx={{ width: 200, cursor: 'pointer' }}
                 >
                   <Image
                     src="/images/home/logo.png"
@@ -108,13 +107,13 @@ const Layout: FC<Props> = ({ children, title }) => {
             </Box>
           </Toolbar>
         </AppBar>
-        <Grid sx={{ margin: 0, padding: 0, minHeight: '90vh', width: '100vw' }}>
+        <Grid sx={{ margin: 0, padding: 0, minHeight: '90vh' }}>
           {children}
         </Grid>
         <BottomNavigation
           showLabels
           value={'Developed by AB'}
-          sx={{ backgroundColor: 'primary.main', width: '100vw' }}
+          sx={{ backgroundColor: 'primary.main' }}
         >
           <Box
             sx={{

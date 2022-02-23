@@ -7,19 +7,24 @@ import {
   FilterOptionsState,
 } from '@mui/material';
 
-interface formFieldProps {
-  control: Control;
-  errors: FieldErrors;
+export type AutoCompleteProps<OptionsType> = {
   fieldName: string;
   fieldLabel: string;
-  options: string[];
+  options: OptionsType[];
+  disabled?: boolean;
+  labelOptions?: {
+    getOptionLabel: (option: OptionsType) => string;
+    isOptionEqualToValue: (option: OptionsType, value: OptionsType) => boolean;
+  };
+};
+interface FormFieldProps<OptionsType> extends AutoCompleteProps<OptionsType> {
+  control: Control;
+  errors: FieldErrors;
   required?: boolean;
   loading?: boolean;
-  disabled?: boolean;
-  handleChange?: (value: string) => void;
 }
 
-const ControlledAutocompleteField: React.FC<formFieldProps> = ({
+const ControlledAutocompleteField = <OptionsType,>({
   control,
   errors,
   fieldName,
@@ -28,7 +33,8 @@ const ControlledAutocompleteField: React.FC<formFieldProps> = ({
   options,
   loading,
   disabled,
-}) => {
+  labelOptions,
+}: FormFieldProps<OptionsType>) => {
   const OPTIONS_LIMIT = 500;
   const defaultFilterOptions = createFilterOptions();
 
@@ -48,6 +54,7 @@ const ControlledAutocompleteField: React.FC<formFieldProps> = ({
       render={({ field }) => (
         <Autocomplete
           {...field}
+          {...labelOptions}
           fullWidth
           options={options}
           loading={loading}
