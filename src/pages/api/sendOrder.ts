@@ -7,7 +7,7 @@ export default async function handler(
 ) {
   try {
     const response = await axios.post(
-      `${process.env.CARRECTLY_ADMIN_URL}/wpbookings/neworder`,
+      `${process.env.CARRECTLY_ADMIN_URL}/api/newBooking`,
       {
         param: req.body,
       }

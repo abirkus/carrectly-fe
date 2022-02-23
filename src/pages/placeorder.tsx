@@ -16,20 +16,26 @@ import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import ServicesDataTable from 'components/Table/ServicesDataTable';
 import orderSummaryColumns from 'components/Table/Columns/OrderSummaryColumns';
-import { OrderDetailsType } from '../../utils/types';
 import { CustomerDetailsSummary } from 'components/Table/CustomerDetailsSummary';
-
-type P = keyof OrderDetailsType;
+import { ServiceType } from '../../utils/types';
 
 function PlaceOrder() {
   const router = useRouter();
   const { state, dispatch } = useContext(Store);
   const { cartItems, shippingAddress } = state;
   const [loading, setLoading] = useState(false);
-
+  const basicCartItems = cartItems.map((item: ServiceType) => {
+    return { id: item.id, price: item.prices[0] }; // temporarily using prices array
+  });
   const { firstName, lastName, email, phoneNumber, ...orderInfo } =
     shippingAddress;
-  const customerInfo = { firstName, lastName, email, phoneNumber };
+
+  const customerInfo = {
+    firstName,
+    lastName,
+    email,
+    phoneNumber: Number(phoneNumber),
+  };
   (orderInfo as any).hash = uuidv4();
 
   const totalPrice = () => {
@@ -48,7 +54,7 @@ function PlaceOrder() {
     try {
       setLoading(true);
       await axios.post('/api/sendOrder', {
-        services: cartItems,
+        services: basicCartItems,
         customer: customerInfo,
         order: orderInfo,
       });

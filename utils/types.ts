@@ -16,7 +16,7 @@ export type faqSubGroupsTypes =
 export type ServiceType = {
   id: number;
   name: string;
-  prices?: number[];
+  prices: number[];
   duration?: string;
   shortDescription: string;
   longDescription: string;
