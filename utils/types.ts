@@ -1,5 +1,6 @@
 import { Moment } from 'moment';
 import { GridColDef } from '@mui/x-data-grid';
+import { CarModel } from 'apiWrappers/carDatabaseApi';
 export interface TabPanelProps {
   index: number;
   value: number;
@@ -32,7 +33,7 @@ export type OrderDetailsType = {
   zipCode: string;
   carYear: string;
   carMake: string;
-  carModel: string;
+  carModel: CarModel;
   carColor?: string;
   vin?: string;
   transmission?: string;

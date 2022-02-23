@@ -9,10 +9,6 @@ import {
   Button,
   Card,
   ListItem,
-  TableContainer,
-  Table,
-  TableCell,
-  TableRow,
 } from '@mui/material';
 import { useRouter } from 'next/router';
 import StepperComponent from '../components/Stepper/Stepper';
@@ -20,11 +16,8 @@ import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import ServicesDataTable from 'components/Table/ServicesDataTable';
 import orderSummaryColumns from 'components/Table/Columns/OrderSummaryColumns';
-import { fieldLabelsUI } from '../../utils/helperFunctions';
-import moment from 'moment';
-import { OrderDetailsType } from '../../utils/types';
+import { CustomerDetailsSummary } from 'components/Table/CustomerDetailsSummary';
 import { ServiceType } from '../../utils/types';
-type P = keyof OrderDetailsType;
 
 function PlaceOrder() {
   const router = useRouter();
@@ -79,50 +72,13 @@ function PlaceOrder() {
     router.push('/cart');
   };
 
-  const editCustomerInfo = () => {
-    router.push('/orderdetails');
-  };
-
   return (
     <Layout title="Place Order">
       <StepperComponent activeStep={2}></StepperComponent>
 
       <Grid container spacing={1}>
         <Grid item md={6} xs={12}>
-          <Card>
-            <Typography component="h4" variant="h4" align="center">
-              Customer Details Summary
-            </Typography>
-            <TableContainer>
-              <Table>
-                {Object.keys(shippingAddress).map((key) => {
-                  const value = shippingAddress[key as keyof OrderDetailsType];
-                  return (
-                    value && (
-                      <TableRow key={key}>
-                        <TableCell>
-                          {fieldLabelsUI[key as keyof typeof fieldLabelsUI]}
-                        </TableCell>
-                        <TableCell>
-                          {key === 'dropoffDate' || key === 'pickupDate'
-                            ? moment(value).format('MM-DD-YY HH:00')
-                            : value}
-                        </TableCell>
-                      </TableRow>
-                    )
-                  );
-                })}
-              </Table>
-            </TableContainer>
-            <Button
-              onClick={editCustomerInfo}
-              variant="outlined"
-              color="primary"
-              fullWidth
-            >
-              Edit customer info
-            </Button>
-          </Card>
+          <CustomerDetailsSummary />
         </Grid>
         <Grid item md={6} xs={12}>
           <Card>

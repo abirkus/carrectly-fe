@@ -58,7 +58,7 @@ export default function Shipping() {
             <AddressForm control={control} errors={errors} />
           </Grid>
           <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-            <ServiceDateForm control={control} watch={watch} />
+            <ServiceDateForm control={control} errors={errors} watch={watch} />
           </Grid>
           <Grid item xs={12}>
             <Button variant="contained" type="submit" fullWidth color="primary">
