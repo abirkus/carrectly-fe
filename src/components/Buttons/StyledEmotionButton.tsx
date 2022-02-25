@@ -1,40 +1,42 @@
+import React from 'react';
 import styled from '@emotion/styled';
-import { FC } from 'react';
+import { Button } from '@mui/material';
 
 interface IButtonProps {
   backgroundColor: string;
   fontColor: string;
 }
-
 interface StyledEmotionButtonProps {
   bgColor: string;
   textColor: string;
   handleClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const StyledButton = styled.button<IButtonProps>`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: ${(props) => props.backgroundColor};
-  color: ${(props) => props.fontColor};
-  font-family: roboto, sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 13px;
-  line-height: 15px;
-  text-transform: uppercase;
-  border-radius: 10px;
-  padding: 4px;
-  margin: 5px;
-  &:hover {
-    color: ${(props) => props.backgroundColor};
-    background-color: ${(props) => props.fontColor};
-  }
-`;
+export const StyledButton = styled(Button)<IButtonProps>(
+  ({ backgroundColor, fontColor }) => ({
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    fontStyle: 'normal',
+    fontWeight: 700,
+    fontSize: '13px',
+    lineHeight: '15px',
+    textTransform: 'uppercase',
+    borderRadius: '4px',
+    padding: '5px',
+    margin: '5px',
+    gap: '3px',
+    backgroundColor,
+    color: fontColor,
+    '&:hover': {
+      color: backgroundColor,
+      backgroundColor: fontColor,
+    },
+  })
+);
 
-const StyledEmotionButton: FC<StyledEmotionButtonProps> = ({
+const StyledEmotionButton: React.FC<StyledEmotionButtonProps> = ({
   bgColor,
   textColor,
   children,

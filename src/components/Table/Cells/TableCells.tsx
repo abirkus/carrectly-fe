@@ -14,6 +14,7 @@ const DeleteButton = styled(Button)(({ theme }) => ({
   marginRight: '10px',
   marginLeft: 'auto',
   textTransform: 'none',
+  [theme.breakpoints.down('lg')]: { fontSize: '.8rem' },
   [theme.breakpoints.down('md')]: {
     '.MuiButton-startIcon': { margin: 0 },
     fontSize: 0,

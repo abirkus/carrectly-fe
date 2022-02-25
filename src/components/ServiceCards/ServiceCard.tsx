@@ -13,10 +13,9 @@ import { ServiceObject } from '../../../utils/types';
 //types are used for
 
 const Title = styled.div`
-  font-family: roboto, sans-serif;
   font-style: normal;
-  font-weight: 900;
-  font-size: 20px;
+  font-weight: bold;
+  font-size: 1.8rem;
   text-transform: uppercase;
   color: #fff;
   text-align: left;
@@ -51,11 +50,7 @@ const ServiceCard: FC<ServiceObject> = ({ serviceObject }) => {
           }}
         >
           <Title>{serviceObject.name}</Title>
-          <Typography
-            variant="body1"
-            color="white"
-            fontFamily="roboto, sans-serif"
-          >
+          <Typography variant="body1" color="#c9c9c9" fontWeight="bold">
             {serviceObject.shortDescription}
           </Typography>
           <Box

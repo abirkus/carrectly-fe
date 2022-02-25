@@ -77,10 +77,10 @@ function PlaceOrder() {
       <StepperComponent activeStep={2}></StepperComponent>
 
       <Grid container spacing={3} padding="20px">
-        <Grid item md={5} xs={12}>
+        <Grid item md={6} xs={12}>
           <CustomerDetailsSummary />
         </Grid>
-        <Grid item md={7} xs={12}>
+        <Grid item md={6} xs={12}>
           <CardShadow>
             <Typography variant="h4" component="h4" margin="10px">
               Order Summary
