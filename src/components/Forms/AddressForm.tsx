@@ -41,10 +41,9 @@ export const AddressForm: React.FC<AddressFormProps> = ({
 
   return (
     <>
-      <Typography component="h4" variant="h4" align="center">
-        Car Location Information
+      <Typography variant="h4" component="h4">
+        Pickup Location
       </Typography>
-
       <List>
         {locationFields.map((field) => (
           <ListItem key={`address-input-${field.fieldName}`}>

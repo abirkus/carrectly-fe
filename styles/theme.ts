@@ -2,11 +2,20 @@ import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 import { red } from '@mui/material/colors';
 import { purple } from '@mui/material/colors';
 
+const primaryColor = '#743794';
+
 // Create a theme instance.
 let theme = createTheme({
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: { fontWeight: 'bold', fontSize: '1.1rem' },
+      },
+    },
+  },
   palette: {
     primary: {
-      main: purple[500],
+      main: primaryColor,
     },
     secondary: {
       main: purple[100],
@@ -28,6 +37,14 @@ let theme = createTheme({
       '"Segoe UI Emoji"',
       '"Segoe UI Symbol"',
     ].join(','),
+
+    h4: {
+      color: primaryColor,
+      textAlign: 'center',
+      fontWeight: 'bold',
+      textTransform: 'uppercase',
+      opacity: 0.8,
+    },
   },
 });
 

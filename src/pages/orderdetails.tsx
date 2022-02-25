@@ -42,7 +42,7 @@ export default function Shipping() {
       <StepperComponent activeStep={1} />
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Grid container spacing={2} width="100%">
+        <Grid container columnSpacing={3} width="100%" marginLeft="-12px">
           <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
             <CustomerInformationForm control={control} errors={errors} />
           </Grid>
@@ -58,14 +58,21 @@ export default function Shipping() {
             <AddressForm control={control} errors={errors} />
           </Grid>
           <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-            <ServiceDateForm control={control} errors={errors} watch={watch} />
-          </Grid>
-          <Grid item xs={12}>
-            <Button variant="contained" type="submit" fullWidth color="primary">
-              Continue to order summary
-            </Button>
+            <ServiceDateForm
+              control={control}
+              errors={errors}
+              watch={watch}
+              setValue={setValue}
+            />
           </Grid>
         </Grid>
+        <div
+          style={{ margin: '20px auto', width: '40%', minWidth: 'fit-content' }}
+        >
+          <Button variant="contained" type="submit" fullWidth color="primary">
+            Continue to order summary
+          </Button>
+        </div>
       </form>
     </Layout>
   );

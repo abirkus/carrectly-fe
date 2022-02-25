@@ -2,12 +2,12 @@ import React, { useContext } from 'react';
 import dynamic from 'next/dynamic';
 import Layout from '../components/Layout/Layout';
 import { Store } from '../../utils/Store';
-import { Grid, Button, Card, List, ListItem } from '@mui/material';
+import { Grid, Button, List, ListItem } from '@mui/material';
 import { useRouter } from 'next/router';
 import StepperComponent from '../components/Stepper/Stepper';
 import ServicesDataTable from 'components/Table/ServicesDataTable';
 import cartTableColumns from 'components/Table/Columns/CartServicesColumns';
-import EmptyCart from 'components/Cart/EmptyCart';
+import { CardShadow } from 'components/StyledBaseComponents/CardShadow';
 
 function CartScreen() {
   const router = useRouter();
@@ -18,6 +18,9 @@ function CartScreen() {
   const checkoutHandler = () => {
     router.push('/orderdetails');
   };
+  const servicesHandler = () => {
+    router.push('/services');
+  };
 
   const totalPrice = () => {
     return cartItems.reduce((subTotal, service) => {
@@ -25,42 +28,64 @@ function CartScreen() {
     }, 0);
   };
 
+  if (cartItems.length === 0) {
+    router.push('/services');
+  }
+
   return (
     <Layout title="Shopping Cart">
       <StepperComponent activeStep={0} />
-      {cartItems.length === 0 ? (
-        <EmptyCart />
-      ) : (
-        <Grid container spacing={1}>
-          <Grid item md={9} xs={12}>
+
+      <Grid container spacing={3} padding="20px">
+        <Grid item md={8} xs={12}>
+          <CardShadow
+            sx={{
+              borderRadius: '4px',
+            }}
+          >
             <ServicesDataTable
               cartItemsArray={cartItems}
               columns={cartTableColumns}
             />
-          </Grid>
-          <Grid item md={3} xs={12}>
-            <Card>
-              <List>
-                <ListItem>Estimated total price: ${totalPrice()}</ListItem>
-                <ListItem>
-                  Note: Total price and duration will vary based on the size of
-                  your vehicle*
-                </ListItem>
-                <ListItem>
-                  <Button
-                    onClick={checkoutHandler}
-                    variant="contained"
-                    color="primary"
-                    fullWidth
-                  >
-                    Check Out
-                  </Button>
-                </ListItem>
-              </List>
-            </Card>
-          </Grid>
+          </CardShadow>
+          <Button
+            onClick={servicesHandler}
+            variant="outlined"
+            color="primary"
+            fullWidth
+            sx={{ marginTop: '20px' }}
+          >
+            + Add more services
+          </Button>
         </Grid>
-      )}
+        <Grid item md={4} xs={12}>
+          <CardShadow>
+            <List>
+              <ListItem sx={{ fontWeight: 'bold' }}>
+                Estimated total price: ${totalPrice()}
+              </ListItem>
+              <ListItem sx={{ color: 'dimgray' }}>
+                Note: Total price and duration will vary based on the size of
+                your vehicle
+              </ListItem>
+              <ListItem>
+                <Button
+                  onClick={checkoutHandler}
+                  variant="contained"
+                  color="primary"
+                  fullWidth
+                  sx={{
+                    fontSize: '1.1rem',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  Check Out
+                </Button>
+              </ListItem>
+            </List>
+          </CardShadow>
+        </Grid>
+      </Grid>
     </Layout>
   );
 }
