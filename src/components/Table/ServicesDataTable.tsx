@@ -7,9 +7,23 @@ const ServicesDataTable: FC<customTableProps> = ({
   columns,
 }) => {
   return (
-    <div style={{ height: 400, width: '100%' }}>
-      <DataGrid rows={cartItemsArray} columns={columns} hideFooter={true} />
-    </div>
+    <DataGrid
+      rows={cartItemsArray}
+      columns={columns}
+      hideFooter={true}
+      sx={{
+        border: 'none',
+        borderRadius: 0,
+        height: 400,
+        width: '100%',
+        '& .MuiDataGrid-cell': {
+          color: 'dimgray',
+        },
+        '& .MuiDataGrid-columnHeaderTitle': {
+          fontWeight: 'bold',
+        },
+      }}
+    />
   );
 };
 

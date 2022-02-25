@@ -81,6 +81,7 @@ const ControlledDatePickerField: React.FC<ControlledDatePickerFieldProps> = ({
               showHour: true,
               hideDisabledOptions: true,
             }}
+            showNow={false}
             disabledDate={disabledDate}
             disabledTime={disabledTime}
             style={{

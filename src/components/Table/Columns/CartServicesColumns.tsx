@@ -3,16 +3,16 @@ import { GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
 import { PriceRangeCell, DeleteServiceCell } from '../Cells/TableCells';
 
 const cartTableColumns: GridColDef[] = [
-  { field: 'name', headerName: 'Service Name', flex: 1 },
+  { field: 'name', headerName: 'Service', flex: 3 },
   {
     field: 'price',
     headerName: 'Price Range (small | medium | large)',
-    flex: 1,
+    flex: 2,
     renderCell: (params: GridRenderCellParams) => (
       <PriceRangeCell row={params.row} />
     ),
   },
-  { field: 'duration', headerName: 'Service Duration', flex: 1 },
+  { field: 'duration', headerName: 'Service Duration', flex: 2 },
   {
     field: 'action',
     headerName: 'Action',

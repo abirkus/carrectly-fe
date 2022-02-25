@@ -72,7 +72,7 @@ export const CustomerInformationForm: React.FC<
 
   return (
     <>
-      <Typography component="h4" variant="h4" align="center">
+      <Typography variant="h4" component="h4">
         Customer Information
       </Typography>
 

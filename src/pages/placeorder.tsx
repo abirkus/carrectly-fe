@@ -7,7 +7,6 @@ import {
   Typography,
   CircularProgress,
   Button,
-  Card,
   ListItem,
 } from '@mui/material';
 import { useRouter } from 'next/router';
@@ -18,6 +17,7 @@ import ServicesDataTable from 'components/Table/ServicesDataTable';
 import orderSummaryColumns from 'components/Table/Columns/OrderSummaryColumns';
 import { CustomerDetailsSummary } from 'components/Table/CustomerDetailsSummary';
 import { ServiceType } from '../../utils/types';
+import { CardShadow } from 'components/StyledBaseComponents/CardShadow';
 
 function PlaceOrder() {
   const router = useRouter();
@@ -76,13 +76,13 @@ function PlaceOrder() {
     <Layout title="Place Order">
       <StepperComponent activeStep={2}></StepperComponent>
 
-      <Grid container spacing={1}>
-        <Grid item md={6} xs={12}>
+      <Grid container spacing={3} padding="20px">
+        <Grid item md={5} xs={12}>
           <CustomerDetailsSummary />
         </Grid>
-        <Grid item md={6} xs={12}>
-          <Card>
-            <Typography component="h4" variant="h4" align="center">
+        <Grid item md={7} xs={12}>
+          <CardShadow>
+            <Typography variant="h4" component="h4" margin="10px">
               Order Summary
             </Typography>
 
@@ -90,7 +90,11 @@ function PlaceOrder() {
               cartItemsArray={cartItems}
               columns={orderSummaryColumns}
             />
-            <Grid container>
+            <Grid
+              container
+              padding="10px"
+              borderTop="solid 1px rgb(224, 224, 224)"
+            >
               <Grid item xs={6}>
                 <Typography>
                   <strong>Estimated total:</strong>
@@ -102,30 +106,31 @@ function PlaceOrder() {
                 </Typography>
               </Grid>
             </Grid>
-
-            <Button
-              onClick={placeOrderHandler}
-              variant="contained"
-              color="primary"
-              fullWidth
-            >
-              Place Order
-            </Button>
-            {loading && (
-              <ListItem>
-                <CircularProgress />
-              </ListItem>
-            )}
-            <Button
-              onClick={editServicesHandler}
-              variant="outlined"
-              color="primary"
-              fullWidth
-            >
-              Edit Services
-            </Button>
-          </Card>
-          <Typography>
+          </CardShadow>
+          <Button
+            onClick={placeOrderHandler}
+            variant="contained"
+            color="primary"
+            fullWidth
+            sx={{ marginTop: '20px' }}
+          >
+            Place Order
+          </Button>
+          {loading && (
+            <ListItem>
+              <CircularProgress />
+            </ListItem>
+          )}
+          <Button
+            onClick={editServicesHandler}
+            variant="outlined"
+            color="primary"
+            fullWidth
+            sx={{ marginTop: '10px' }}
+          >
+            Edit Services
+          </Button>
+          <Typography marginTop="10px" fontSize="0.9rem">
             Once the order is placed we will reach out to you via text to
             confirm order details and to coordinate vehicle pickup times. Due to
             increasingly high service volume, please allow a few hours for our

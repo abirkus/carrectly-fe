@@ -28,6 +28,8 @@ type Props = {
 const StyledLink = styled(Link)<LinkProps>({
   color: 'white',
   padding: 10,
+  fontSize: '1.1rem',
+  fontWeight: 'bold',
 });
 
 const Layout: FC<Props> = ({ children, title }) => {
@@ -57,12 +59,13 @@ const Layout: FC<Props> = ({ children, title }) => {
         sx={{
           display: 'flex',
           flexDirection: 'column',
+          justifyContent: 'space-between',
           margin: 0,
           padding: 0,
           minHeight: '100vh',
         }}
       >
-        <AppBar position="static">
+        <AppBar position="sticky">
           {/* <Toolbar className={style.nav}> */}
           <Toolbar>
             <Box
@@ -87,9 +90,6 @@ const Layout: FC<Props> = ({ children, title }) => {
                   />
                 </Box>
               </NextLink>
-              <NextLink href="/" passHref>
-                <StyledLink>Home</StyledLink>
-              </NextLink>
               <NextLink href="/about" passHref>
                 <StyledLink>About</StyledLink>
               </NextLink>
@@ -107,7 +107,15 @@ const Layout: FC<Props> = ({ children, title }) => {
             </Box>
           </Toolbar>
         </AppBar>
-        <Grid sx={{ margin: 0, padding: 0, minHeight: '90vh' }}>
+        <Grid
+          sx={{
+            margin: 'auto',
+            padding: 0,
+            width: '100%',
+            maxWidth: '1500px',
+            flexGrow: 1,
+          }}
+        >
           {children}
         </Grid>
         <BottomNavigation
