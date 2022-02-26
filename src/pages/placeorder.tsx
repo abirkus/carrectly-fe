@@ -24,8 +24,20 @@ function PlaceOrder() {
   const { state, dispatch } = useContext(Store);
   const { cartItems, shippingAddress, carSize } = state;
   const [loading, setLoading] = useState(false);
+
+  let priceIndex = 0;
+  if (carSize === 'large') {
+    priceIndex = 2;
+  }
+  if (carSize === 'medium') {
+    priceIndex = 1;
+  }
+
   const basicCartItems = cartItems.map((item: ServiceType) => {
-    return { id: item.id, price: item.prices[0] }; // temporarily using prices array
+    const finalItemPrice =
+      item.prices.length > 2 ? item.prices[priceIndex] : item.prices[0];
+
+    return { id: item.id, price: finalItemPrice }; // temporarily using prices array
   });
   const { firstName, lastName, email, phoneNumber, ...orderInfo } =
     shippingAddress;
@@ -37,16 +49,9 @@ function PlaceOrder() {
     phoneNumber: Number(phoneNumber),
   };
   (orderInfo as any).hash = uuidv4();
+  (orderInfo as any).carModel = orderInfo.carModel.Model;
 
   const totalPrice = () => {
-    let priceIndex = 0;
-    if (carSize === 'large') {
-      priceIndex = 2;
-    }
-    if (carSize === 'medium') {
-      priceIndex = 1;
-    }
-
     return cartItems.reduce((subTotal, service) => {
       if (service.prices.length > 2) {
         return subTotal + service.prices[priceIndex];
