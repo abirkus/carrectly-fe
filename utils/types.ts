@@ -50,12 +50,19 @@ export type ServiceDatesType = {
 export type StateType = {
   cartItems: ServiceType[];
   shippingAddress: OrderDetailsType;
+  carSize: string;
 };
 
-export type ActionType = {
+export type Action =
+  | { type: 'CART_ADD_ITEM'; payload: ServiceType }
+  | { type: 'CART_REMOVE_ITEM'; payload: ServiceType }
+  | { type: 'SAVE_SHIPPING_ADDRESS'; payload: OrderDetailsType }
+  | { type: 'CART_CLEAR' };
+
+{
   type: string;
-  payload: any;
-};
+  payload: OrderDetailsType | ServiceType;
+}
 
 export type aboutDetailsProps = {
   title: string;

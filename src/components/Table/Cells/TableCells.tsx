@@ -1,8 +1,8 @@
+import React, { useContext } from 'react';
+import { Store } from '../../../../utils/Store';
 import { Button, List, ListItem } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { GridRowModel } from '@mui/x-data-grid';
-import React, { useContext } from 'react';
-import { Store } from '../../../../utils/Store';
 import { ServiceType } from '../../../../utils/types';
 import { styled } from '@mui/system';
 
@@ -42,12 +42,29 @@ export const DeleteServiceCell: React.FC<CellAttributes> = ({ row }) => {
 };
 
 export const PriceRangeCell: React.FC<CellAttributes> = ({ row }) => {
+  const { state } = useContext(Store);
+  const { carSize } = state;
+
+  let priceIndex = 0;
+  if (carSize === 'large') {
+    priceIndex = 2;
+  }
+  if (carSize === 'medium') {
+    priceIndex = 1;
+  }
+
+  if (row.prices.length > 2) {
+    return (
+      <List sx={{ display: 'flex', flexDirection: 'row' }}>
+        <ListItem key={`price-variant-${priceIndex}`}>
+          ${row.prices[priceIndex]}
+        </ListItem>
+      </List>
+    );
+  }
   return (
     <List sx={{ display: 'flex', flexDirection: 'row' }}>
-      {row?.prices &&
-        row.prices.map((price, index) => (
-          <ListItem key={`price-variant-${index}`}>${price}</ListItem>
-        ))}
+      <ListItem key={`price-variant-${priceIndex}`}>${row.prices[0]}</ListItem>
     </List>
   );
 };
