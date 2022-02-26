@@ -1,36 +1,25 @@
 import React, { FC } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
-import {
-  AppBar,
-  Toolbar,
-  Link,
-  Box,
-  LinkProps,
-  BottomNavigation,
-  BottomNavigationAction,
-  Grid,
-} from '@mui/material';
+import { AppBar, Toolbar, Link, Box, Grid } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import NextLink from 'next/link';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import StyledCartIcon from '../StyledCartIcon/StyledCartIcon';
-import SecurityIcon from '@mui/icons-material/Security';
-import FeedIcon from '@mui/icons-material/Feed';
+import { Footer } from './Footer';
 
 type Props = {
   title?: string;
 };
 
-const StyledLink = styled(Link)<LinkProps>({
+const StyledLink = styled(Link)(({ theme }) => ({
   color: 'white',
   padding: 10,
   fontSize: '1.1rem',
   fontWeight: 'bold',
-});
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '1rem',
+  },
+}));
 
 const Layout: FC<Props> = ({ children, title }) => {
   return (
@@ -118,74 +107,7 @@ const Layout: FC<Props> = ({ children, title }) => {
         >
           {children}
         </Grid>
-        <BottomNavigation
-          showLabels
-          value={'Developed by AB'}
-          sx={{ backgroundColor: 'primary.main' }}
-        >
-          <Box
-            sx={{
-              color: 'white',
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}
-          >
-            773.800.9085 | info@carrectly.com
-          </Box>
-          <BottomNavigationAction
-            label="Facebook"
-            value="facebook"
-            href="https://www.facebook.com/Carrectly"
-            target="_blank"
-            showLabel
-            sx={{ color: 'white' }}
-            icon={<FacebookIcon color="secondary" />}
-          />
-          <BottomNavigationAction
-            label="Twitter"
-            value="twitter"
-            href="https://twitter.com/Carrectly"
-            target="_blank"
-            showLabel
-            sx={{ color: 'white' }}
-            icon={<TwitterIcon color="secondary" />}
-          />
-          <BottomNavigationAction
-            label="Instagram"
-            value="instagram"
-            href="https://www.instagram.com/carrectly/"
-            target="_blank"
-            showLabel
-            sx={{ color: 'white' }}
-            icon={<InstagramIcon color="secondary" />}
-          />
-          <BottomNavigationAction
-            label="LinkedIn"
-            value="linkedin"
-            href="https://www.linkedin.com/company/carrectly/"
-            target="_blank"
-            showLabel
-            sx={{ color: 'white' }}
-            icon={<LinkedInIcon color="secondary" />}
-          />
-          <BottomNavigationAction
-            label="Terms & Conditions"
-            value="Terms"
-            href="termsAndConditions"
-            showLabel
-            sx={{ color: 'white' }}
-            icon={<FeedIcon color="secondary" />}
-          />
-          <BottomNavigationAction
-            label="Privacy Policy"
-            value="Privacy"
-            href="privacyPolicy"
-            showLabel
-            sx={{ color: 'white' }}
-            icon={<SecurityIcon color="secondary" />}
-          />
-        </BottomNavigation>
+        <Footer />
       </Box>
     </>
   );
