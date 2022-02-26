@@ -13,7 +13,7 @@ import StyledCarouselComponent from '../components/StyledCarousel/StyledCarousel
 import { SxProps } from '@mui/system';
 import AddIcon from '@mui/icons-material/Add';
 import { useRouter } from 'next/router';
-import GoogleMapIframe from 'components/Map/GoogleMapIframe';
+
 import CustomReviewCard from 'components/CustomerReviews/CustomReviewCard';
 
 const fabStyle = {
@@ -61,21 +61,7 @@ const Home: NextPage = () => {
         height={425}
         priority
       />
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'row',
-          width: '100%',
-          justifyContent: 'space-between',
-          alignContent: 'space-between',
-          overflow: 'auto',
-        }}
-      >
-        {loading && <CircularProgress />}
-        {reviewsArray.map((singleReview, index) => (
-          <CustomReviewCard key={`review-id-${index}`} review={singleReview} />
-        ))}
-      </Box>
+
       <Typography
         variant="h3"
         align="center"
@@ -138,7 +124,23 @@ const Home: NextPage = () => {
           </Box>
         </Box>
       </BgImage>
-      <GoogleMapIframe />
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          width: '100%',
+          justifyContent: 'space-between',
+          alignContent: 'space-between',
+          overflow: 'auto',
+          margin: '20px 0 20px 0',
+        }}
+      >
+        {loading && <CircularProgress />}
+        {reviewsArray.map((singleReview, index) => (
+          <CustomReviewCard key={`review-id-${index}`} review={singleReview} />
+        ))}
+      </Box>
+
       <Fab
         sx={fabIsh.sx}
         aria-label={fabIsh.label}
@@ -147,7 +149,10 @@ const Home: NextPage = () => {
         variant="extended"
         onClick={() => handleNewBookingClick()}
       >
-        {fabIsh.icon} Book new services
+        {fabIsh.icon}
+        <Typography variant="h4" component="h4" color="white" margin="10px">
+          Request Services
+        </Typography>
       </Fab>
     </Layout>
   );

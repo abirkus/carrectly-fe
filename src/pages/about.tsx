@@ -2,6 +2,7 @@ import Layout from '../components/Layout/Layout';
 import AboutCard from '../components/AboutCards/AboutCard';
 import aboutInfoArray from '../data/about.json';
 import { Box, Typography, Container } from '@mui/material';
+import GoogleMapIframe from 'components/Map/GoogleMapIframe';
 
 const about = () => {
   return (
@@ -70,7 +71,7 @@ const about = () => {
         <Box
           display="flex"
           flexDirection="row"
-          justifyContent="center"
+          justifyContent="space-between"
           flexWrap="wrap"
         >
           {aboutInfoArray.map((el, i) => (
@@ -78,6 +79,7 @@ const about = () => {
           ))}
         </Box>
       </Container>
+      <GoogleMapIframe />
     </Layout>
   );
 };

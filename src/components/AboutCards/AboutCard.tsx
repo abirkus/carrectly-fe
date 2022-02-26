@@ -11,6 +11,7 @@ const StyledCard = styled(Card)<CardProps>`
 
 const cardStyle = {
   width: 350,
+  margin: '10px 0 10px 0',
 };
 
 const AboutCard = ({ info }: AboutCardProps): JSX.Element => {
