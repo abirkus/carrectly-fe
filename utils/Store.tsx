@@ -1,11 +1,14 @@
 import Cookies from 'js-cookie';
 import React, { createContext, useReducer } from 'react';
-import { StateType, ActionType } from '../utils/types';
+import { StateType, Action } from '../utils/types';
 
 const initialState = {
   cartItems: Cookies.get('cartItems')
     ? JSON.parse(Cookies.get('cartItems') as string)
     : [],
+  carSize: Cookies.get('carSize')
+    ? (Cookies.get('carSize') as string)
+    : 'small',
   shippingAddress: Cookies.get('shippingAddress')
     ? {
         ...JSON.parse(Cookies.get('shippingAddress') as string),
@@ -13,6 +16,18 @@ const initialState = {
         dropoffDate: undefined,
       }
     : {},
+};
+
+const saveCarSize = (carCategory: string) => {
+  const small = ['Hatchback', 'Convertible', 'Coupe', 'Sedan', 'Wagon'];
+  const medium = ['SUV'];
+  const large = ['XL', 'Pickup', 'Van/Minivan'];
+
+  if (small.includes(carCategory)) return 'small';
+  if (medium.includes(carCategory)) return 'medium';
+  if (large.includes(carCategory)) return 'large';
+
+  return 'small';
 };
 
 export const Store = createContext<{
@@ -23,7 +38,7 @@ export const Store = createContext<{
   dispatch: () => null,
 });
 
-function reducer(state: StateType, action: ActionType) {
+function reducer(state: StateType, action: Action) {
   switch (action.type) {
     case 'CART_ADD_ITEM': {
       const newItem = action.payload;
@@ -32,6 +47,7 @@ function reducer(state: StateType, action: ActionType) {
       return {
         cartItems: newCartItems,
         shippingAddress: state.shippingAddress,
+        carSize: state.carSize,
       };
     }
     case 'CART_REMOVE_ITEM': {
@@ -39,20 +55,32 @@ function reducer(state: StateType, action: ActionType) {
         (item) => Number(item.id) !== Number(action.payload)
       );
       Cookies.set('cartItems', JSON.stringify(cartItems));
-      return { cartItems: cartItems, shippingAddress: state.shippingAddress };
+      return {
+        cartItems: cartItems,
+        shippingAddress: state.shippingAddress,
+        carSize: state.carSize,
+      };
     }
     case 'SAVE_SHIPPING_ADDRESS':
       const data = action.payload;
       Cookies.set('shippingAddress', JSON.stringify({ ...data }));
+      const categoryArr = data.carModel.Category.split(',');
+      const size = saveCarSize(categoryArr[0]);
+      Cookies.set('carSize', size);
       return {
         cartItems: [...state.cartItems],
+        carSize: size,
         shippingAddress: {
           ...data,
         },
       };
     case 'CART_CLEAR':
       Cookies.remove('cartItems');
-      return { ...state, cartItems: [] };
+      return {
+        shippingAddress: state.shippingAddress,
+        cartItems: [],
+        carSize: 'small',
+      };
     default:
       return state;
   }

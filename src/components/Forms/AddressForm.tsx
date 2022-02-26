@@ -24,6 +24,12 @@ export const AddressForm: React.FC<AddressFormProps> = ({
     {
       fieldName: 'zipCode',
       fieldLabel: 'Zip Code',
+      extraProps: { inputProps: { type: 'number' } },
+      rules: {
+        pattern: /^[0-9]{5}/,
+        minLength: 5,
+        maxLength: 5,
+      },
     },
     {
       fieldName: 'customerComments',

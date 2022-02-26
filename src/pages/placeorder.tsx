@@ -22,7 +22,7 @@ import { CardShadow } from 'components/StyledBaseComponents/CardShadow';
 function PlaceOrder() {
   const router = useRouter();
   const { state, dispatch } = useContext(Store);
-  const { cartItems, shippingAddress } = state;
+  const { cartItems, shippingAddress, carSize } = state;
   const [loading, setLoading] = useState(false);
   const basicCartItems = cartItems.map((item: ServiceType) => {
     return { id: item.id, price: item.prices[0] }; // temporarily using prices array
@@ -39,8 +39,19 @@ function PlaceOrder() {
   (orderInfo as any).hash = uuidv4();
 
   const totalPrice = () => {
+    let priceIndex = 0;
+    if (carSize === 'large') {
+      priceIndex = 2;
+    }
+    if (carSize === 'medium') {
+      priceIndex = 1;
+    }
+
     return cartItems.reduce((subTotal, service) => {
-      return subTotal + (service.prices ? service.prices[0] : 0);
+      if (service.prices.length > 2) {
+        return subTotal + service.prices[priceIndex];
+      }
+      return subTotal + service.prices[0];
     }, 0);
   };
 
@@ -97,7 +108,7 @@ function PlaceOrder() {
             >
               <Grid item xs={6}>
                 <Typography>
-                  <strong>Estimated total:</strong>
+                  <strong>Total price based on your vehicle size:</strong>
                 </Typography>
               </Grid>
               <Grid item xs={6}>
