@@ -13,7 +13,7 @@ function CartScreen() {
   const router = useRouter();
   const { state } = useContext(Store);
 
-  const { cartItems } = state;
+  const { cartItems, carSize } = state;
 
   const checkoutHandler = () => {
     router.push('/orderdetails');
@@ -22,9 +22,20 @@ function CartScreen() {
     router.push('/services');
   };
 
+  let priceIndex = 0;
+  if (carSize === 'large') {
+    priceIndex = 2;
+  }
+  if (carSize === 'medium') {
+    priceIndex = 1;
+  }
+
   const totalPrice = () => {
     return cartItems.reduce((subTotal, service) => {
-      return subTotal + (service.prices ? service.prices[0] : 0);
+      if (service.prices.length > 2) {
+        return subTotal + service.prices[priceIndex];
+      }
+      return subTotal + service.prices[0];
     }, 0);
   };
 
