@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
-import { AppBar, Toolbar, Link, Box, LinkProps, Grid } from '@mui/material';
+import { AppBar, Toolbar, Link, Box, Grid } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import NextLink from 'next/link';
 import StyledCartIcon from '../StyledCartIcon/StyledCartIcon';
