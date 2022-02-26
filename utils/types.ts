@@ -59,11 +59,6 @@ export type Action =
   | { type: 'SAVE_SHIPPING_ADDRESS'; payload: OrderDetailsType }
   | { type: 'CART_CLEAR' };
 
-{
-  type: string;
-  payload: OrderDetailsType | ServiceType;
-}
-
 export type aboutDetailsProps = {
   title: string;
   description: string;
