@@ -5,7 +5,7 @@ import { AppBar, Toolbar, Link, Box, Grid } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import NextLink from 'next/link';
 import StyledCartIcon from '../StyledCartIcon/StyledCartIcon';
-import { Footer } from './Footer';
+import { Footer } from '../Footer/Footer';
 
 type Props = {
   title?: string;
