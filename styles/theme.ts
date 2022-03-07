@@ -1,6 +1,6 @@
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 import { red } from '@mui/material/colors';
-import { purple } from '@mui/material/colors';
+import { purple, grey } from '@mui/material/colors';
 
 const primaryColor = '#743794';
 
@@ -19,6 +19,9 @@ let theme = createTheme({
     },
     secondary: {
       main: purple[100],
+    },
+    info: {
+      main: grey[300],
     },
     error: {
       main: red.A400,

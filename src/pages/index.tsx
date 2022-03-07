@@ -13,7 +13,6 @@ import StyledCarouselComponent from '../components/StyledCarousel/StyledCarousel
 import { SxProps } from '@mui/system';
 import AddIcon from '@mui/icons-material/Add';
 import { useRouter } from 'next/router';
-
 import CustomReviewCard from 'components/CustomerReviews/CustomReviewCard';
 
 const fabStyle = {

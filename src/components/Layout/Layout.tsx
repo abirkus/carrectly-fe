@@ -6,6 +6,8 @@ import { styled } from '@mui/material/styles';
 import NextLink from 'next/link';
 import StyledCartIcon from '../StyledCartIcon/StyledCartIcon';
 import { Footer } from './Footer';
+import { SponsorsRibbon } from 'components/Ribbon/SponsorsRibbon';
+import { useRouter } from 'next/router';
 
 type Props = {
   title?: string;
@@ -22,6 +24,8 @@ const StyledLink = styled(Link)(({ theme }) => ({
 }));
 
 const Layout: FC<Props> = ({ children, title }) => {
+  const router = useRouter();
+  const currentPage = router.pathname;
   return (
     <>
       <Head>
@@ -107,6 +111,7 @@ const Layout: FC<Props> = ({ children, title }) => {
         >
           {children}
         </Grid>
+        {currentPage === '/' ? <SponsorsRibbon /> : ''}
         <Footer />
       </Box>
     </>
