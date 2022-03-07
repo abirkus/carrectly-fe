@@ -1,10 +1,6 @@
 import { Moment } from 'moment';
 import { GridColDef } from '@mui/x-data-grid';
 import { CarModel } from 'apiWrappers/carDatabaseApi';
-export interface TabPanelProps {
-  index: number;
-  value: number;
-}
 
 export type faqSubGroupsTypes =
   | 'basics'

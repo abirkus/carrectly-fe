@@ -42,6 +42,9 @@ export const Footer: React.FC = () => {
         fontSize: '16px',
         fontWeight: 500,
         padding: '10px 40px',
+        [theme.breakpoints.down('md')]: {
+          marginBottom: '48px',
+        },
         [theme.breakpoints.down('sm')]: {
           padding: '10px 20px',
           fontSize: '.8rem',

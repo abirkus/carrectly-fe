@@ -13,6 +13,7 @@ export default async function handler(
       }
     );
     res.status(200).json(response.statusText);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     return res.status(error.status || 500).end(error.message);
   }

@@ -9,11 +9,21 @@ import {
   AccordionDetails,
 } from '@mui/material';
 import Layout from '../components/Layout/Layout';
-import faqData from '../data/faq.json';
+import faqJSONData from '../data/faq.json';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { TabPanelProps } from '../../utils/types';
+export interface TabPanelProps {
+  index: number;
+  value: number;
+}
 
-const faqSubGroupsArr = ['basics', 'services', 'payments', 'changes', 'info'];
+type FAQType = {
+  question: string;
+  answer: string;
+};
+
+type FAQDataType = {
+  [group: string]: FAQType[];
+};
 
 const TabPanel: FC<TabPanelProps> = ({ children, value, index, ...other }) => {
   return (
@@ -33,34 +43,21 @@ const TabPanel: FC<TabPanelProps> = ({ children, value, index, ...other }) => {
   );
 };
 
-function a11yProps(index: number) {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  };
-}
-
-const renderAccordion = (
-  faqDataObj: any,
-  faqGroup: string
-): React.ReactNode => {
-  if (faqDataObj[faqGroup]) {
-    return faqDataObj[faqGroup].map((el: any, index: number) => (
-      <Accordion key={`accordiong_id_${index}`}>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Typography>{el.question}</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>{el.answer}</Typography>
-        </AccordionDetails>
-      </Accordion>
-    ));
-  }
-  return <div />;
+const renderAccordion = (faqs: FAQType[]): React.ReactNode => {
+  return faqs.map((faq, index) => (
+    <Accordion key={`accordiong_id_${index}`}>
+      <AccordionSummary
+        expandIcon={<ExpandMoreIcon />}
+        aria-controls="panel1a-content"
+        id="panel1a-header"
+      >
+        <Typography>{faq.question}</Typography>
+      </AccordionSummary>
+      <AccordionDetails>
+        <Typography>{faq.answer}</Typography>
+      </AccordionDetails>
+    </Accordion>
+  ));
 };
 
 const Faq = () => {
@@ -70,6 +67,7 @@ const Faq = () => {
     setValue(newValue);
   };
 
+  const faqData: FAQDataType = faqJSONData;
   return (
     <Layout>
       <Typography variant="h2" align="center">
@@ -90,22 +88,21 @@ const Faq = () => {
             onChange={handleChange}
             aria-label="basic tabs example"
           >
-            {faqSubGroupsArr.length &&
-              faqSubGroupsArr.map((el, i) => (
-                <Tab
-                  label={el.toUpperCase()}
-                  {...a11yProps(i)}
-                  key={`tab_id_${i}`}
-                />
-              ))}
+            {Object.keys(faqData).map((group, index) => (
+              <Tab
+                id={`simple-tab-${index}`}
+                key={`tab_id_${index}`}
+                label={group.toUpperCase()}
+                aria-controls={`simple-tabpanel-${index}`}
+              />
+            ))}
           </Tabs>
         </Box>
-        {faqSubGroupsArr.length &&
-          faqSubGroupsArr.map((el, i) => (
-            <TabPanel value={value} index={i} key={`tabpanel_id_${i}`}>
-              {renderAccordion(faqData, el)}
-            </TabPanel>
-          ))}
+        {Object.keys(faqData).map((group, index) => (
+          <TabPanel value={value} index={index} key={`tabpanel_id_${index}`}>
+            {renderAccordion(faqData[group])}
+          </TabPanel>
+        ))}
       </Box>
     </Layout>
   );

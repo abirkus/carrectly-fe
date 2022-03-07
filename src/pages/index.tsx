@@ -10,12 +10,12 @@ import howItWorksArr from '../data/howItWorks.json';
 import KeyboardArrowLeftOutlinedIcon from '@mui/icons-material/KeyboardArrowLeftOutlined';
 import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined';
 import StyledCarouselComponent from '../components/StyledCarousel/StyledCarousel';
-import { SxProps } from '@mui/system';
 import AddIcon from '@mui/icons-material/Add';
 import { useRouter } from 'next/router';
 import CustomReviewCard from 'components/CustomerReviews/CustomReviewCard';
+import { styled } from '@mui/system';
 
-const fabStyle = {
+const StyledFab = styled(Fab)(({ theme }) => ({
   zIndex: 35,
   margin: '0px',
   top: 'auto',
@@ -24,13 +24,20 @@ const fabStyle = {
   fontSize: '2rem',
   left: 'auto',
   position: 'fixed',
-};
+  backgroundColor: '#511bd6',
+  [theme.breakpoints.down('md')]: {
+    left: 0,
+    bottom: 0,
+    width: '100%',
+    borderRadius: 0,
+  },
+}));
 
-const fabIsh = {
-  color: 'primary' as const,
-  sx: fabStyle as SxProps,
-  icon: <AddIcon />,
-  label: 'Add',
+const IconStyle = {
+  color: 'white',
+  opacity: 0.8,
+  stroke: 'white',
+  fontSize: '2rem',
 };
 
 const Home: NextPage = () => {
@@ -140,19 +147,23 @@ const Home: NextPage = () => {
         ))}
       </Box>
 
-      <Fab
-        sx={fabIsh.sx}
-        aria-label={fabIsh.label}
-        color={fabIsh.color}
+      <StyledFab
+        aria-label={'Add'}
         size="large"
         variant="extended"
         onClick={() => handleNewBookingClick()}
       >
-        {fabIsh.icon}
-        <Typography variant="h4" component="h4" color="white" margin="10px">
+        <AddIcon sx={IconStyle} />
+        <Typography
+          variant="h4"
+          component="h4"
+          color="white"
+          margin="10px"
+          marginLeft="5px"
+        >
           Request Services
         </Typography>
-      </Fab>
+      </StyledFab>
     </Layout>
   );
 };

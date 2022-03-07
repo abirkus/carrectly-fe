@@ -28,7 +28,7 @@ export const ServiceDateForm: React.FC<ServiceDateFormProps> = ({
   useEffect(() => {
     if (!watchPickupDate || watchDropOffDate < watchPickupDate)
       setValue('dropoffDate', null);
-  }, [watchPickupDate, watchDropOffDate]);
+  }, [watchPickupDate, watchDropOffDate, setValue]);
 
   return (
     <>

@@ -21,15 +21,15 @@ import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import Inventory2Icon from '@mui/icons-material/Inventory2';
 
 const iconsArr = [
-  <StarIcon />,
-  <LocalCarWashIcon />,
-  <BuildIcon />,
-  <DirectionsCarIcon />,
-  <AirlineSeatReclineExtraIcon />,
-  <AspectRatioIcon />,
-  <CarRepairIcon />,
-  <Inventory2Icon />,
-  <CarRentalIcon />,
+  <StarIcon key="star-icon" />,
+  <LocalCarWashIcon key="local-car-wash-icon" />,
+  <BuildIcon key="build-icon" />,
+  <DirectionsCarIcon key="directions-car-icon" />,
+  <AirlineSeatReclineExtraIcon key="airline-seat-icon" />,
+  <AspectRatioIcon key="aspect-ratio-icon" />,
+  <CarRepairIcon key="car-repair-icon" />,
+  <Inventory2Icon key="inventory2-icon" />,
+  <CarRentalIcon key="car-rental-icon" />,
 ];
 
 const Services = () => {

@@ -66,7 +66,8 @@ export const CarInformationFrom: React.FC<CarInformationFromProps> = ({
 
     setLoading(true);
     fetchCarModels().finally(() => setLoading(false));
-  }, [watchCarYear, watchCarMake, carMakes]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [watchCarYear, watchCarMake]); 
 
   const vehicleFields: AutoCompleteProps<string | CarModel>[] = [
     {

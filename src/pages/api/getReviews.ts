@@ -11,9 +11,8 @@ export default async function handler(
   try {
     const response = await axios.get(yelpReviews);
     res.send(response.data);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
-    console.log(error);
-
     return res.status(error.status || 500).end(error.message);
   }
 }

@@ -49,14 +49,18 @@ function PlaceOrder() {
     email,
     phoneNumber: Number(phoneNumber),
   };
-  (orderInfo as any).hash = uuidv4();
-  (orderInfo as any).carModel = orderInfo.carModel.Model;
+
+  const order = {
+    hash: uuidv4(),
+    ...orderInfo,
+    carModel: orderInfo.carModel.Model,
+  };
 
   useEffect(() => {
     if (cartItems.length === 0) {
       router.push('/cart');
     }
-  }, []);
+  }, [cartItems.length, router]);
 
   const placeOrderHandler = async () => {
     try {
@@ -64,7 +68,7 @@ function PlaceOrder() {
       await axios.post('/api/sendOrder', {
         services: basicCartItems,
         customer: customerInfo,
-        order: orderInfo,
+        order,
       });
 
       dispatch({ type: 'CART_CLEAR' });

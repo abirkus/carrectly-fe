@@ -1,27 +1,14 @@
 import React, { FC } from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
-import { AppBar, Toolbar, Link, Box, Grid } from '@mui/material';
-import { styled } from '@mui/material/styles';
-import NextLink from 'next/link';
-import StyledCartIcon from '../StyledCartIcon/StyledCartIcon';
 import { SponsorsRibbon } from 'components/Ribbon/SponsorsRibbon';
 import { useRouter } from 'next/router';
+import { Box, Grid } from '@mui/material';
 import { Footer } from '../Footer/Footer';
+import Header from 'components/Header/Header';
 
 type Props = {
   title?: string;
 };
-
-const StyledLink = styled(Link)(({ theme }) => ({
-  color: 'white',
-  padding: 10,
-  fontSize: '1.1rem',
-  fontWeight: 'bold',
-  [theme.breakpoints.down('sm')]: {
-    fontSize: '1rem',
-  },
-}));
 
 const Layout: FC<Props> = ({ children, title }) => {
   const router = useRouter();
@@ -58,48 +45,7 @@ const Layout: FC<Props> = ({ children, title }) => {
           minHeight: '100vh',
         }}
       >
-        <AppBar position="sticky">
-          {/* <Toolbar className={style.nav}> */}
-          <Toolbar>
-            <Box
-              display="flex"
-              flexDirection="row"
-              justifyContent="space-evenly"
-              sx={{ width: '100%' }}
-            >
-              <NextLink href="/" passHref>
-                <Box
-                  display="flex"
-                  flexDirection="column"
-                  justifyContent="center"
-                  sx={{ width: 200, cursor: 'pointer' }}
-                >
-                  <Image
-                    src="/images/home/logo.png"
-                    alt="car wrench"
-                    width={200}
-                    height={50}
-                    priority
-                  />
-                </Box>
-              </NextLink>
-              <NextLink href="/about" passHref>
-                <StyledLink>About</StyledLink>
-              </NextLink>
-              <NextLink href="/services" passHref>
-                <StyledLink>Services</StyledLink>
-              </NextLink>
-              <NextLink href="/faq" passHref>
-                <StyledLink>FAQ</StyledLink>
-              </NextLink>
-              <NextLink href="/cart" passHref>
-                <StyledLink>
-                  <StyledCartIcon />
-                </StyledLink>
-              </NextLink>
-            </Box>
-          </Toolbar>
-        </AppBar>
+        <Header />
         <Grid
           sx={{
             margin: 'auto',

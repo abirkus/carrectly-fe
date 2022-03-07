@@ -10,6 +10,7 @@ export default async function handler(
       `${process.env.CARRECTLY_ADMIN_URL}/api/cars/getModels/${req.query.make}/${req.query.year}`
     );
     res.send(response.data);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     return res.status(error.status || 500).end(error.message);
   }

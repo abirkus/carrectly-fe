@@ -24,7 +24,7 @@ const TextMaskCustom = React.forwardRef<HTMLElement, CustomProps>(
         mask={'(000) 000-0000'}
         unmask={true}
         inputRef={ref}
-        onAccept={(value: any) =>
+        onAccept={(value: string) =>
           onChange({ target: { name: props.name, value } })
         }
         overwrite
@@ -58,6 +58,7 @@ export const CustomerInformationForm: React.FC<
       fieldLabel: 'Phone Number',
       extraProps: {
         InputProps: {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           inputComponent: TextMaskCustom as any,
         },
       },

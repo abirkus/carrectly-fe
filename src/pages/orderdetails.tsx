@@ -27,7 +27,7 @@ export default function Shipping() {
     Object.keys(shippingAddress).map((key) =>
       setValue(key, shippingAddress[key as keyof OrderDetailsType])
     );
-  }, [state]);
+  }, [state, setValue, shippingAddress]);
 
   const onSubmit: SubmitHandler<OrderDetailsType> = (data) => {
     dispatch({
