@@ -8,6 +8,7 @@ import StepperComponent from '../components/Stepper/Stepper';
 import ServicesDataTable from 'components/Table/ServicesDataTable';
 import cartTableColumns from 'components/Table/Columns/CartServicesColumns';
 import { CardShadow } from 'components/StyledBaseComponents/CardShadow';
+import { totalPrice } from '../../utils/helperFunctions';
 
 function CartScreen() {
   const router = useRouter();
@@ -29,15 +30,6 @@ function CartScreen() {
   if (carSize === 'medium') {
     priceIndex = 1;
   }
-
-  const totalPrice = () => {
-    return cartItems.reduce((subTotal, service) => {
-      if (service.prices.length > 2) {
-        return subTotal + service.prices[priceIndex];
-      }
-      return subTotal + service.prices[0];
-    }, 0);
-  };
 
   if (cartItems.length === 0) {
     router.push('/services');
@@ -73,7 +65,7 @@ function CartScreen() {
           <CardShadow>
             <List>
               <ListItem sx={{ fontWeight: 'bold' }}>
-                Estimated total price: ${totalPrice()}
+                Estimated total price: ${totalPrice(cartItems, priceIndex)}
               </ListItem>
               <ListItem sx={{ color: 'dimgray' }}>
                 Note: Total price and duration will vary based on the size of

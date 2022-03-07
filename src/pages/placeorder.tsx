@@ -18,6 +18,7 @@ import orderSummaryColumns from 'components/Table/Columns/OrderSummaryColumns';
 import { CustomerDetailsSummary } from 'components/Table/CustomerDetailsSummary';
 import { ServiceType } from '../../utils/types';
 import { CardShadow } from 'components/StyledBaseComponents/CardShadow';
+import { totalPrice } from '../../utils/helperFunctions';
 
 function PlaceOrder() {
   const router = useRouter();
@@ -50,15 +51,6 @@ function PlaceOrder() {
   };
   (orderInfo as any).hash = uuidv4();
   (orderInfo as any).carModel = orderInfo.carModel.Model;
-
-  const totalPrice = () => {
-    return cartItems.reduce((subTotal, service) => {
-      if (service.prices.length > 2) {
-        return subTotal + service.prices[priceIndex];
-      }
-      return subTotal + service.prices[0];
-    }, 0);
-  };
 
   useEffect(() => {
     if (cartItems.length === 0) {
@@ -118,7 +110,7 @@ function PlaceOrder() {
               </Grid>
               <Grid item xs={6}>
                 <Typography align="right">
-                  <strong>${totalPrice()}</strong>
+                  <strong>${totalPrice(cartItems, priceIndex)}</strong>
                 </Typography>
               </Grid>
             </Grid>
