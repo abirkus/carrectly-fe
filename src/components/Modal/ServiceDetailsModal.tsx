@@ -38,12 +38,7 @@ export default function ServiceDetailsModal({
         aria-describedby="modal-modal-description"
       >
         <Box sx={wrapper}>
-          <StyledCarousel
-            autoplay={false}
-            arrows={true}
-            dots={true}
-            arrowSpacing="15px"
-          >
+          <StyledCarousel autoplay dots={false} arrows arrowSpacing="15px">
             {serviceDetails.images.map((image, i) => (
               <Box sx={carouselBackground} key={`card-slider-id-${i}`}>
                 <Image

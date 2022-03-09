@@ -7,6 +7,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 import { styled, SxProps } from '@mui/system';
+import { useRouter } from 'next/router';
 
 const IconLink = styled(Link)(({ theme }) => ({
   color: 'white',
@@ -21,6 +22,9 @@ const IconLink = styled(Link)(({ theme }) => ({
 }));
 
 export const Footer: React.FC = () => {
+  const router = useRouter();
+  const currentPage = router.pathname;
+
   const gridStyle: SxProps = {
     color: 'white',
     display: 'flex',
@@ -43,7 +47,7 @@ export const Footer: React.FC = () => {
         fontWeight: 500,
         padding: '10px 40px',
         [theme.breakpoints.down('md')]: {
-          marginBottom: '48px',
+          marginBottom: currentPage === '/' ? '48px' : 0,
         },
         [theme.breakpoints.down('sm')]: {
           padding: '10px 20px',

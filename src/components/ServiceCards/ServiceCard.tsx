@@ -34,8 +34,16 @@ const ServiceCard: FC<ServiceObject> = ({ serviceObject }) => {
   };
 
   return (
-    <div>
-      <BgImage imgsrc={cardImage} imgalt="test">
+    <>
+      <BgImage
+        backgroundImage={cardImage}
+        sx={{
+          width: '320px',
+          height: '215px',
+          margin: '5px',
+          backgroundSize: 'cover',
+        }}
+      >
         <Box
           display="flex"
           flexDirection="column"
@@ -75,7 +83,7 @@ const ServiceCard: FC<ServiceObject> = ({ serviceObject }) => {
         onClose={handleClose}
         serviceDetails={serviceObject}
       />
-    </div>
+    </>
   );
 };
 

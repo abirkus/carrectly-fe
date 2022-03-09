@@ -24,14 +24,20 @@ const Header: React.FC = () => {
           flexDirection="row"
           justifyContent="space-evenly"
           alignItems="center"
-          sx={{ width: '100%' }}
+          sx={(theme) => ({
+            width: '100%',
+            [theme.breakpoints.up('sm')]: { height: '80px' },
+          })}
         >
           <NextLink href="/" passHref>
             <Box
               display="flex"
               flexDirection="column"
               justifyContent="center"
-              sx={{ width: 200, cursor: 'pointer' }}
+              sx={(theme) => ({
+                cursor: 'pointer',
+                [theme.breakpoints.down('sm')]: { width: '150px' },
+              })}
             >
               <Image
                 src="/images/home/logo.png"

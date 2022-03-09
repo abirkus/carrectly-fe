@@ -65,22 +65,6 @@ export type AboutCardProps = {
   info: aboutDetailsProps;
 };
 
-export interface BgImageProps {
-  alignItems?: string;
-  imgalt: string;
-  imgsrc: string;
-  height?: string;
-  justifyContent?: string;
-  width?: string;
-}
-
-export interface BgImageContainerProps {
-  alignItems: string;
-  justifyContent: string;
-  height: string;
-  width: string;
-}
-
 export interface ServiceObject {
   serviceObject: ServiceType;
 }

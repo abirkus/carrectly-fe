@@ -4,19 +4,14 @@ import Image from 'next/image';
 import axios from 'axios';
 import { Box, Typography, Fab, CircularProgress } from '@mui/material';
 import Layout from '../components/Layout/Layout';
-import styles from '../../styles/Layout.module.css';
-import BgImage from '../components/BgImage/BgImage';
-import howItWorksArr from '../data/howItWorks.json';
-import KeyboardArrowLeftOutlinedIcon from '@mui/icons-material/KeyboardArrowLeftOutlined';
-import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined';
-import StyledCarouselComponent from '../components/StyledCarousel/StyledCarousel';
 import AddIcon from '@mui/icons-material/Add';
 import { useRouter } from 'next/router';
 import CustomReviewCard from 'components/CustomerReviews/CustomReviewCard';
 import { styled } from '@mui/system';
+import { HomeCarousel } from 'components/homeCarousel/homeCarousel';
 
 const StyledFab = styled(Fab)(({ theme }) => ({
-  zIndex: 35,
+  zIndex: 20,
   margin: '0px',
   top: 'auto',
   right: '25px',
@@ -67,69 +62,8 @@ const Home: NextPage = () => {
         height={425}
         priority
       />
+      <HomeCarousel />
 
-      <Typography
-        variant="h3"
-        align="center"
-        sx={{
-          marginBottom: '25px',
-          marginTop: '25px',
-          color: '#bababa',
-          letterSpacing: '24px',
-        }}
-      >
-        HOW IT WORKS
-      </Typography>
-      <BgImage
-        imgsrc="/images/home/car-1.jpg"
-        imgalt="test"
-        height="900px"
-        width="100%"
-      >
-        <Box
-          display="flex"
-          flexDirection={'column'}
-          justifyContent="center"
-          sx={{ height: '900px' }}
-        >
-          <Box
-            display="flex"
-            flexDirection="row"
-            justifyContent="center"
-            sx={{ height: '600px', position: 'relative' }}
-          >
-            <StyledCarouselComponent
-              dots={true}
-              width="400px"
-              effect="scrollx"
-              arrows={true}
-              autoplay={false}
-              arrowSpacing="-50px"
-              prevArrow={<KeyboardArrowLeftOutlinedIcon />}
-              nextArrow={<ChevronRightOutlinedIcon />}
-            >
-              {howItWorksArr.map((el, index) => (
-                <Box
-                  className={styles.carouselCard}
-                  sx={{ width: '400px' }}
-                  key={`home-slider-id-${index}`}
-                >
-                  <Typography
-                    variant="h2"
-                    align="center"
-                    sx={{ color: '#bababa' }}
-                  >
-                    {index + 1}. {el.title}
-                  </Typography>
-                  <Typography variant="body1" align="center">
-                    {el.description}
-                  </Typography>
-                </Box>
-              ))}
-            </StyledCarouselComponent>
-          </Box>
-        </Box>
-      </BgImage>
       <Box
         sx={{
           display: 'flex',
