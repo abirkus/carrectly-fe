@@ -70,11 +70,9 @@ function PlaceOrder() {
         customer: customerInfo,
         order,
       });
-
-      dispatch({ type: 'CART_CLEAR' });
-
       setLoading(false);
       router.push('/confirmation');
+      dispatch({ type: 'CART_CLEAR' });
     } catch (err) {
       setLoading(false);
     }
