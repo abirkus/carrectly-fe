@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Layout from '../components/Layout/Layout';
 import { Store } from '../../utils/Store';
@@ -56,11 +56,12 @@ function PlaceOrder() {
     carModel: orderInfo.carModel.Model,
   };
 
-  useEffect(() => {
-    if (cartItems.length === 0) {
-      router.push('/cart');
-    }
-  }, [cartItems.length, router]);
+  // commenting this code. after submission re-routes back to services page. confusing for the customer.
+  // useEffect(() => {
+  //   if (cartItems.length === 0) {
+  //     router.push('/cart');
+  //   }
+  // }, [cartItems.length, router]);
 
   const placeOrderHandler = async () => {
     try {
@@ -70,9 +71,9 @@ function PlaceOrder() {
         customer: customerInfo,
         order,
       });
+      dispatch({ type: 'CART_CLEAR' });
       setLoading(false);
       router.push('/confirmation');
-      dispatch({ type: 'CART_CLEAR' });
     } catch (err) {
       setLoading(false);
     }
