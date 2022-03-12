@@ -18,11 +18,10 @@ const Confirmation = () => {
         }}
       >
         <Typography
-          variant="h2"
-          component="h2"
+          variant="h4"
+          component="h4"
           fontWeight="bold"
           textAlign={'center'}
-          color="primary"
         >
           Hooray!!! We received your order and will be reaching out to you
           shortly.
