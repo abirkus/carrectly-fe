@@ -37,10 +37,10 @@
       {
         "id": 160,
         "name": "Deluxe Wash",
-        "prices": [35, 40, 45],
+        "prices": [40, 45, 50],
         "duration": "2-4 hours",
         "shortDescription": "Best in and out hand car wash in Chicago, without waiting in line",
-        "longDescription": "✔Soft cloth exterior wash ✔All carpets, seats, and trunk vacuumed ✔Interior, dash and console wiped down ✔Tire dressing and microfiber drying are included",
+        "longDescription": "✔Full soft-cloth hand exterior wash ✔Microfiber and chamois drying, windows cleaned ✔All carpets, seats, and mats are vacuumed ✔Interior, dashes, and consoles are wiped down ✔Tire dressing and trunk vacuuming are included ✔$40 Sedan, $45 SUV & Large $50 3-Row & XL",
         "images": [
           "/images/wash_detail/Deluxe_Hand_Wash/Car_Detailing_near_me-best_hand_wash_Chicago.jpg",
           "/images/wash_detail/Deluxe_Hand_Wash/Honda-best_hand_wash_near_me-Chicago-Auto_Detailing.jpg",
@@ -76,7 +76,7 @@
       {
         "id": 12,
         "name": "Emissions Test",
-        "prices": [65],
+        "prices": [80],
         "duration": "",
         "shortDescription": "With no EPA facilities left in Chicago, pass the test without wasting hours",
         "longDescription": "✔With no EPA facilities left in Chicago, we bring your car to one in the nearest suburb ✔Shall the car fail the test – we can take it for diagnostics and repair at the shop",
@@ -89,7 +89,7 @@
       {
         "id": 171,
         "name": "Tire Repair",
-        "prices": [60],
+        "prices": [65],
         "duration": "",
         "shortDescription": "Tire leaking air? No worries: we'll patch, re-seal, and re-balance it",
         "longDescription": "✔Is your tire leaking air? ✔We will inspect it, patch or reseal it ✔If non-reparable, we can find an identical new or used ✔Installation and re-balancing is included",
@@ -150,7 +150,7 @@
         "prices": [105, 140],
         "duration": "",
         "shortDescription": "Synthetic Oil and filter change with none of the hassles or wasted time",
-        "longDescription": "✔Full synthetic Oil & Filter change ✔Fluids check and top-off ✔Up to 5 QTs for most car ✔Newer, higher-end vehicles will need Premium Mobile1 oil (+ $35)",
+        "longDescription": "✔Full synthetic Oil & Filter change ✔Fluids check and top-off ✔Up to 5 QTs for most car ✔Newer, higher-end vehicles will need Premium Mobile1 oil (+ $35) ✔$105 Small | $140 Large Engine & High Performance",
         "images": [
           "/images/mechanical_repair/Full_Synthetic_Oil_Change/Boise-Automotive-Repair-Shop.jpg",
           "/images/mechanical_repair/Full_Synthetic_Oil_Change/GettyImages-693170166-5a99f020c67335003717a070.jpg",
@@ -166,10 +166,10 @@
       {
         "id": 165,
         "name": "Mini Detail",
-        "prices": [115, 125, 135],
+        "prices": [165, 180, 195],
         "duration": "3.5 - 5 hours ",
         "shortDescription": "Better than a wash, less than a full detail. Wash + Spot Cleaning",
-        "longDescription": "✔A thorough deluxe wash, detailers spend more time on the car, spot and stain cleaning only ✔Unlike full Interior Detail, does not include shampooing",
+        "longDescription": "✔A thorough deluxe wash: detailers spend more time on the car, spot and stain cleaning only ✔Unlike full Interior Detail, does not include full shampooing ✔Full compressed air blow-out and vacuuming ✔All panels, vents, cracks & crevices are cleaned ✔Exterior wash, microfiber towel or chamois drying and tire shine are included ✔165 Sedan, 180 SUV, 195 XL",
         "images": [
           "/images/wash_detail/Mini_Detail/auto_car_wash_vintage_car_restoration.jpg",
           "/images/wash_detail/Mini_Detail/auto_detailing_near_me.jpg",
@@ -214,10 +214,10 @@
       {
         "id": 163,
         "name": "Interior Detail",
-        "prices": [180, 210, 240],
+        "prices": [255, 275, 295],
         "duration": "5-8 hours",
         "shortDescription": "Full deep cleaning and shampoo of your entire interior. Fresh, clean, and sparkling. ",
-        "longDescription": "✔Compressed air blow-out ✔Vacuum, brush & shampoo carpets, mats, headliner, belts & trunk ✔All cracks, vents, crevices are detailed ✔Seats are deep cleaned & shampooed; leather is treated with conditioner",
+        "longDescription": "✔ Full compressed air blow-out and vacuuming ✔Brushing and shampooing of carpets, mats, headliner, belts, trunk, etc ✔All panels, vents, cracks & crevices are detailed✔Seats are deep cleaned & shampooed; Leather is treated with conditioner ✔Exterior wash, microfiber towel or chamois drying and tire shine are included ✔255 Sedan, 275 Medium + Large, 295 XL",
         "images": [
           "/images/wash_detail/Interior_Detail/auto_car_wash_vintage_car_restoration.jpg",
           "/images/wash_detail/Interior_Detail/auto_detailing_near_me.jpg",
@@ -243,10 +243,10 @@
       {
         "id": 14,
         "name": "Exterior Detail",
-        "prices": [180, 210, 240],
+        "prices": [255, 275, 295],
         "duration": "5-8 hours",
         "shortDescription": "Removes scratches and swirl marks. Restores and locks-in the shine",
-        "longDescription": "✔Snow foam pre-soak & full hand wash ✔Clay Bar & IronX treatment to decontaminate the paint ✔ Microfiber, chamois & air drying ✔1-step buff & 2-step polish to restore the shine, remove minor scratches & swirls ✔Synthetic sealant with wax for protection✔Regular inside wash - included",
+        "longDescription": "✔Snow foam pre-soak & full hand wash ✔Clay Bar & IronX treatment to decontaminate the paint ✔Microfiber, chamois & air drying ✔1-step buff & 2-step polish to restore the shine, remove minor scratches & swirls ✔Synthetic sealant with wax for protection ✔Regular inside wash - included ✔255 Sedan, 275 Medium + Large, 295 XL",
         "images": [
           "/images/wash_detail/Exterior_Detail/Auto-Ceramic-Chicago-Detailing-Ceramic_Coating.jpg",
           "/images/wash_detail/Exterior_Detail/Auto-Chicago-Ceramic-Ceramic_Coating-Wash.jpg",
@@ -309,10 +309,10 @@
       {
         "id": 41,
         "name": "Showroom Detail",
-        "prices": [290, 330, 370],
+        "prices": [375, 385, 395],
         "duration": "7-11 hours",
         "shortDescription": "Best premium quality full detailing service in Chicago. Period.",
-        "longDescription": "✔Combines the services of INTERIOR & EXTERIOR detailing with a FREE Engine cleaning as a bonus for a total saving of $125",
+        "longDescription": "Combines INTERIOR Detailing Package ($225-285) & EXTERIOR Detailing ($225-285) with a FREE Engine cleaning ($75 value) for savings of $170-250 INTERIOR: ✔Full compressed air blow-out ✔Brushing & shampooing of carpets, seats, mats, headliner, belts ✔All panels, cracks & crevices are detailed ✔Leather is treated with conditioner EXTERIOR: ✔Foam pre-soak & hand wash ✔Clay Bar & IronX treatment ✔Microfiber & chamois drying ✔1-step buff & 2-step polish to restore the shine ✔Synthetic sealant for protection",
         "images": [
           "/images/wash_detail/Showroom_Detail/Best_Hand_Wash_Chicago(2).jpg",
           "/images/wash_detail/Showroom_Detail/Chevrolet-exterior_detailing-Chicago.jpg",
@@ -366,7 +366,7 @@
         "prices": [40, 70, 110],
         "duration": "2hr/ 4hrs/ 8hrs",
         "shortDescription": "Disinfect your car with ozone - it destroys mold, bacteria, viruses & odors",
-        "longDescription": "✔ Ozone is one of the most powerful disinfectants ✔ Quickly and effectively sanitizes passenger vehicles and kills germs  ✔In addition to eliminating bacteria, it also destroys bad odors",
+        "longDescription": "✔ Ozone is one of the most powerful disinfectants ✔ Quickly and effectively sanitizes passenger vehicles and kills germs  ✔In addition to eliminating bacteria and many viruses, it also destroys bad odors and cigarette smell ✔40 - 2 hrs | 70 - 4 hrs | 110 - 8 hrs",
         "images": [
           "/images/wash_detail/Ozone_Disinfection/Car-Ozone-Treatment-1.jpg",
           "/images/wash_detail/Ozone_Disinfection/Ozone-Treatment-for-Car.jpg",
@@ -418,10 +418,10 @@
       {
         "id": 57,
         "name": "Wash & Sealant Wax",
-        "prices": [75, 80, 85],
+        "prices": [80, 90, 100],
         "duration": "",
         "shortDescription": "Car lost its shine? Wash and hand wax it to make it shiner and protect it a little ",
-        "longDescription": "✔Full service of a regular Deluxe Wash - full in and our hand wash PLUS hand application of wax to protect the paint and give your car more shine ",
+        "longDescription": "✔Full service of a regular Deluxe Wash - full in and our hand wash PLUS paint decontamination and hand application of wax to protect the paint and give your car more shine, ✔80 Sedan, 90 SUV, 100 XL",
         "images": [
           "/images/wash_detail/Wash___Sealant_Wax/5-1-scaled.jpg",
           "/images/wash_detail/Wash___Sealant_Wax/Honda-Detailing-Auto_Chicago.jpg",
@@ -663,11 +663,11 @@
       },
       {
         "id": 154,
-        "name": "Dog Hair",
+        "name": "Pet Hair Removal",
         "prices": [35, 55, 75],
         "duration": "",
         "shortDescription": "Only dog owners know how hard it is to remove the hair off seats and carpets. Extra cost.",
-        "longDescription": "✔ Regular vacuuming does not remove dog hairs ✔Our detailers manually brush our pet hairs, prices depends on how excessive ",
+        "longDescription": "✔Unfortunately, regular vacuuming does not remove most of dog's hair ✔Our detailers manually brush our pet hairs. Price depends on how excessive it is ✔We use stones, extractors, special rolls and rubber brushes to guarantee up to 99% of hair will be gone ✔Pet hair removal is an add-on service, and can only be added to a car wash or detailing service",
         "images": [
           "/images/at_home_extras/Pet_Hair___Stain_Removal/brush_dog_hair_from_car_upholstery.jpg",
           "/images/at_home_extras/Pet_Hair___Stain_Removal/car_wash_dog_hair.jpg",
@@ -786,7 +786,7 @@
       {
         "id": 36,
         "name": "Recall & Dealership Run",
-        "prices": [70],
+        "prices": [80],
         "duration": "",
         "shortDescription": "We'll bring your car for a recall or appointment with your dealership",
         "longDescription": "✔If you are having troubles we cannot resolve for you and must take to dealership, we will gladly take the hassle out of it for you ✔Any recalls or reprogramming, we will make the dealership run so you do not have to ",
@@ -802,10 +802,10 @@
       {
         "id": 34,
         "name": "Problem Diagnostics",
-        "prices": [100],
+        "prices": [130],
         "duration": "",
         "shortDescription": "Car acting up, warning lights on? We'll take it for diagnostics and estimate",
-        "longDescription": "✔Car acting up, warning light on? ✔We take it to diagnose the problem, update you on the issue and send an estimate ✔If you decide to repair, $45 goes towards its cost",
+        "longDescription": "✔We pick up your car, takes it into the shop, and we have technician get it inspected shortly after. We'll send an update and overview of the causes the time it would take, and the cost of repairs ✔Concierge will return the car back to you if you tell us to, or if you approve the repairs - once it's done ✔Diagnostics includes free roundtrip, up to 1 hour of technician’s labor and priority same-day service. Shall you proceed with repairs - half of the cost goes towards the repair",
         "images": [
           "/images/mechanical_repair/Problem_Diagnostics/best-auto-diagnostic-chicago.jpg",
           "/images/mechanical_repair/Problem_Diagnostics/best-automotive-diagnostic-scanner.jpg",
@@ -822,7 +822,7 @@
         "prices": [140],
         "duration": "",
         "shortDescription": "Check the basics of your car or steer away from buying a lemon",
-        "longDescription": "✔Multi-point inspection of fluids, hoses, belts, brakes, cooling system, suspension, HVAC, tires, etc ✔Check engine errors scan, battery test ✔You'll get a full report",
+        "longDescription": "✔ We will inspect the tires, brake pads and rotors, steering & suspension ✔Check hoses, belts, filters, HVAC, antifreeze & inspect for leaks, check engine scan ✔TPMS sensors scan & reset. Tire pressure corrected. Battery & alternator test ✔Inform on urgent issues and provide a full report",
         "images": [
           "/images/mechanical_repair/Multi-Point_Inspection/Battery_Jump___Replacement_in_Chicago_-_AAA.jpg",
           "/images/mechanical_repair/Multi-Point_Inspection/Car-Inspection-in-Chicago.jpg",
@@ -938,10 +938,10 @@
       {
         "id": 6,
         "name": "Brake Pads Replacement",
-        "prices": [275, 480],
+        "prices": [275, 485],
         "duration": "3-8 hours",
         "shortDescription": "Squeaking or grinding noise? You need new pads; we'll replace them",
-        "longDescription": "✔We’ll inspect your brakes, rotors and tires ✔Brake pads replacement for one fixed prices, per axle (covers 95% of cars) Grinding, vibrating, and wobbling? You might need pads and rotors ✔Parts, labor, taxes, and logistics included",
+        "longDescription": "✔Concierge picks up the car & takes it to have a technician inspect your brakes, rotors, bake lines and calipers ✔ We'll update on what we find, time and costs it'd take to fix. We only use good quality parts. Parts, labor, taxes, fees, and logistics included ✔Price is per axle, covers 90% of cars. Premium & luxury might be more - we will let you know ✔Inspection only w/o any repairs (with free pick up and return) - $50. If repairs are approved: Pads - $275. Pads & Rotors - $485",
         "images": [
           "/images/mechanical_repair/Brake_Pads_Replacement/252f9f83-b497-44d0-ab13-519573e98738-scaled.jpg",
           "/images/mechanical_repair/Brake_Pads_Replacement/Brake-Repair-Pads-and-Rotors-Chicago.jpg",
@@ -1262,7 +1262,7 @@
         "prices": [125],
         "duration": "",
         "shortDescription": "PDR is a great method to pull some dings without paying a prices of a full repair and repainting",
-        "longDescription": "✔Paintless Dent Removal will eliminate random dings on the car without removing or replacing any parts of your vehicle ",
+        "longDescription": "✔Paintless Dent Removal will eliminate random dings on the car without removing or replacing any parts of your vehicle ✔Best PDR specialist in Chicago are here for you ✔For Hail Damage, Dings, Small Accidents that are not worth the deductible or time of dealing with a auto body shop - PDR is the way to go",
         "images": [
           "/images/body_shop/Paintless_Dent_Removal/best-dent-repair-services-1080x675-1.jpg",
           "/images/body_shop/Paintless_Dent_Removal/paintless_dent_removal.jpg",
@@ -1581,7 +1581,7 @@
       {
         "id": 154,
         "name": "Detail & Oil Change",
-        "prices": [295],
+        "prices": [320],
         "duration": "",
         "shortDescription": "We've pre-packaged some popular services for a discount. ",
         "longDescription": "✔As simple as that, either a Full Interior OR Full Exterior detailing & Full Synthetic oil change for a discount. ",
