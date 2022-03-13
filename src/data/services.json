@@ -130,7 +130,7 @@
       {
         "id": 34,
         "name": "Problem Diagnostics",
-        "prices": [100],
+        "prices": [130],
         "duration": "",
         "shortDescription": "Car acting up, warning lights on? We'll take it for diagnostics and estimate",
         "longDescription": "✔Car acting up, warning light on? ✔We take it to diagnose the problem, update you on the issue and send an estimate ✔If you decide to repair, $45 goes towards its cost",
@@ -269,7 +269,7 @@
       {
         "id": 6,
         "name": "Brake Pads Replacement",
-        "prices": [275, 480],
+        "prices": [275, 485],
         "duration": "3-8 hours",
         "shortDescription": "Squeaking or grinding noise? You need new pads; we'll replace them",
         "longDescription": "✔We’ll inspect your brakes, rotors and tires ✔Brake pads replacement for one fixed prices, per axle (covers 95% of cars) Grinding, vibrating, and wobbling? You might need pads and rotors ✔Parts, labor, taxes, and logistics included",
@@ -380,7 +380,7 @@
       {
         "id": 180,
         "name": "Deluxe Wash",
-        "prices": [35, 40, 45],
+        "prices": [40, 45, 50],
         "duration": "2-4 hours",
         "shortDescription": "Best in and out hand car wash in Chicago, without waiting in line",
         "longDescription": "✔Soft cloth exterior wash ✔All carpets, seats, and trunk vacuumed ✔Interior, dash and console wiped down ✔Tire dressing and microfiber drying are included",
@@ -451,7 +451,7 @@
       {
         "id": 165,
         "name": "Mini Detail",
-        "prices": [115, 125, 135],
+        "prices": [165, 180, 195],
         "duration": "3.5 - 5 hours ",
         "shortDescription": "Better than a wash, less than a full detail. Wash + Spot Cleaning",
         "longDescription": "✔A thorough deluxe wash, detailers spend more time on the car, spot and stain cleaning only ✔Unlike full Interior Detail, does not include shampooing",
@@ -480,7 +480,7 @@
       {
         "id": 163,
         "name": "Interior Detail",
-        "prices": [180, 210, 240],
+        "prices": [255, 275, 295],
         "duration": "5-8 hours",
         "shortDescription": "Full deep cleaning and shampoo of your entire interior. Fresh, clean, and sparkling. ",
         "longDescription": "✔Compressed air blow-out ✔Vacuum, brush & shampoo carpets, mats, headliner, belts & trunk ✔All cracks, vents, crevices are detailed ✔Seats are deep cleaned & shampooed; leather is treated with conditioner",
@@ -509,7 +509,7 @@
       {
         "id": 14,
         "name": "Exterior Detail",
-        "prices": [180, 210, 240],
+        "prices": [255, 275, 295],
         "duration": "5-8 hours",
         "shortDescription": "Removes scratches and swirl marks. Restores and locks-in the shine",
         "longDescription": "✔Snow foam pre-soak & full hand wash ✔Clay Bar & IronX treatment to decontaminate the paint ✔ Microfiber, chamois & air drying ✔1-step buff & 2-step polish to restore the shine, remove minor scratches & swirls ✔Synthetic sealant with wax for protection✔Regular inside wash - included",
@@ -535,7 +535,7 @@
       {
         "id": 41,
         "name": "Showroom Detail",
-        "prices": [290, 330, 370],
+        "prices": [375, 385, 395],
         "duration": "7-11 hours",
         "shortDescription": "Best premium quality full detailing service in Chicago. Period.",
         "longDescription": "✔Combines the services of INTERIOR & EXTERIOR detailing with a FREE Engine cleaning as a bonus for a total saving of $125",
@@ -758,7 +758,7 @@
       {
         "id": 12,
         "name": "Emissions Test",
-        "prices": [65],
+        "prices": [80],
         "duration": "",
         "shortDescription": "With no EPA facilities left in Chicago, pass the test without wasting hours",
         "longDescription": "✔With no EPA facilities left in Chicago, we bring your car to one in the nearest suburb ✔Shall the car fail the test – we can take it for diagnostics and repair at the shop",
@@ -997,7 +997,7 @@
       {
         "id": 171,
         "name": "Tire Repair",
-        "prices": [60],
+        "prices": [65],
         "duration": "",
         "shortDescription": "Tire leaking air? No worries: we'll patch, re-seal, and re-balance it",
         "longDescription": "✔Is your tire leaking air? ✔We will inspect it, patch or reseal it ✔If non-reparable, we can find an identical new or used ✔Installation and re-balancing is included",
