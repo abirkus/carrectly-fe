@@ -3,6 +3,29 @@
     "category": "POPULAR",
     "services": [
       {
+        "id": 19,
+        "name": "Auto Body Shop",
+        "prices": [35],
+        "duration": "",
+        "shortDescription": "We can take your car & take it to up to 3 body shops to collect estimates for you to save you time",
+        "longDescription": "✔Fender-bender & major accidents are never fun. Neither is dealing with body shops ✔Worry not, we will work on an FREE estimate for you based off photos. We do it all: Dents, Bumper Repairs, Scratches, Major and Minor Accidents ✔We pick up your vehicle once all work is approved and we are ready to start - ensuring the fastest turn-around times in Chicago ✔Work on all makes and models & with all insurance companies",
+        "images": [
+          "/images/body_shop/Auto_Body_Shop/Repair-Estimate.jpg",
+          "/images/body_shop/Auto_Body_Shop/alignment_laser_new.jpeg",
+          "/images/body_shop/Auto_Body_Shop/auto_storage_facility.jpg",
+          "/images/body_shop/Auto_Body_Shop/best_auto_body_shop_near_me_chicago.jpg",
+          "/images/body_shop/Auto_Body_Shop/body_shop_door_repair.jpg",
+          "/images/body_shop/Auto_Body_Shop/body_shop_near_me.jpg",
+          "/images/body_shop/Auto_Body_Shop/car_repaint.jpg",
+          "/images/body_shop/Auto_Body_Shop/electrical_diagnostic_body_shop_repair_door.jpg",
+          "/images/body_shop/Auto_Body_Shop/free_repair_quote_best_body_shop_Chicago_all_insurance.jpeg",
+          "/images/body_shop/Auto_Body_Shop/free_repair_quote_estimate_bodywork.jpg",
+          "/images/body_shop/Auto_Body_Shop/full_car_repaint(1).jpg",
+          "/images/body_shop/Auto_Body_Shop/full_car_repaint.jpg",
+          "/images/body_shop/Auto_Body_Shop/towing_services_chicago.jpg"
+        ]
+      },
+      {
         "id": 15,
         "name": "FREE QUOTE",
         "prices": [0],
@@ -23,19 +46,71 @@
         ]
       },
       {
-        "id": 16,
-        "name": "Fuel up",
-        "prices": [10],
-        "duration": "",
-        "shortDescription": "Can't or don't want to leave your home to fill up gas? We can do it for you. ",
-        "longDescription": "✔ We locate the best prices of gas near by and fill up the car for you ",
+        "id": 172,
+        "name": "TOWING",
+        "prices": [140, 200],
+        "duration": "1-3 hours",
+        "shortDescription": "Send us the time and place - we'll arrange the towing for you, even on a short notice",
+        "longDescription": "✔Finding a reliable towing company yourself that would not try to rip you off is not easy, to the the least ✔Or you can reach out to us and we'll arrange everything for you",
         "images": [
-          "/images/at_home_extras/Fuel_Up/chicago_gas_station_near_me_closest.jpg",
-          "/images/at_home_extras/Fuel_Up/fuel_up_my_car_filld_booster_fuel_chicago.jpeg"
+          "/images/everything_else/Towing/car_towing_near_me_AAA.jpg",
+          "/images/everything_else/Towing/chicago_tripple_A_car_towing.jpg",
+          "/images/everything_else/Towing/free_towing_service_in_chicago.jpg",
+          "/images/everything_else/Towing/tow_my_car_chicago.jpg",
+          "/images/everything_else/Towing/towing_accident_near_me_chicago.jpeg"
         ]
       },
       {
-        "id": 160,
+        "id": 1,
+        "name": "AC Coolant Recharge",
+        "prices": [175],
+        "duration": "3-6 hours",
+        "shortDescription": "AC not blowing cold on a hot day in Chicago? We can help",
+        "longDescription": "✔Full  AC recharge involves evacuating the old refrigerant, and then refilling it with fresh freon",
+        "images": [
+          "/images/mechanical_repair/AC_Coolant_Recharge/Air-conditioning-system-refrigerant-recharge-862x575-1.jpg",
+          "/images/mechanical_repair/AC_Coolant_Recharge/ac_coolant_recharge.jpg",
+          "/images/mechanical_repair/AC_Coolant_Recharge/car-engine.jpg",
+          "/images/mechanical_repair/AC_Coolant_Recharge/coolant_recharge.jpg"
+        ]
+      },
+      {
+        "id": 161,
+        "name": "Headliner Replacement",
+        "prices": [400, 700],
+        "duration": "",
+        "shortDescription": "We can repair and replace the sagging headliner. Materials + labor is included. A few days of work. ",
+        "longDescription": "✔Replacing sagging headliners that become loose over time is another common repair ✔Will match color to the rest of the interior and have it looking like new again",
+        "images": [
+          "/images/upholstery/Headliner_Replacement/Headlinings-1-1024x576-1.jpg",
+          "/images/upholstery/Headliner_Replacement/auto_headliner_installation_service_in_chicago.jpg",
+          "/images/upholstery/Headliner_Replacement/headliner_repair_in_chicago.jpg",
+          "/images/upholstery/Headliner_Replacement/sagging_headliner_repair_replace_chicago.jpg",
+          "/images/upholstery/Headliner_Replacement/sagging_headliner_repair_replacement.jpg"
+        ]
+      },
+      {
+        "id": 8,
+        "name": "Ceramic Coating & Paint Correction",
+        "prices": [750, 1100, 1800],
+        "duration": "",
+        "shortDescription": "Please fill out this form and we'll email or call you to answer all your questions",
+        "longDescription": "✔Ceramic is more of an aesthetic choice with some water repellent qualities✔Will gladly walk you through the process! ✔Ceramic is only as good as the paint corrected under it - so the price varies on exterior work needed and the coat you pick ✔Can't decide between getting PPF or Ceramic in Chicago? As a place that has some of the most experienced paint correction specialist in Chicago, we will gladly answer all your questions and clear our the misconceptions ✔ We will walk you through the process and pros & cons (even if you don't decide to give us your business). So ask away!",
+        "images": [
+          "/images/protection_aesthetics/Ceramic_Coating/20210320_155912.jpg",
+          "/images/protection_aesthetics/Ceramic_Coating/20210320_155917.jpg",
+          "/images/protection_aesthetics/Ceramic_Coating/20210320_155934.jpg",
+          "/images/protection_aesthetics/Ceramic_Coating/best-ceramic-car-coating.jpg",
+          "/images/protection_aesthetics/Ceramic_Coating/car-wax-stripping.jpg",
+          "/images/protection_aesthetics/Ceramic_Coating/carrectly_auto_care_ceramic_coating_chicago.jpeg",
+          "/images/protection_aesthetics/Ceramic_Coating/ceramic-car-coating.png",
+          "/images/protection_aesthetics/Ceramic_Coating/ceramic-paint-protection-1200x675-1.jpg",
+          "/images/protection_aesthetics/Ceramic_Coating/ceramic_coating_in_chicago.jpeg",
+          "/images/protection_aesthetics/Ceramic_Coating/intireal.jpg"
+        ]
+      },
+      {
+        "id": 106,
         "name": "Deluxe Wash",
         "prices": [40, 45, 50],
         "duration": "2-4 hours",
@@ -312,7 +387,7 @@
         "prices": [375, 385, 395],
         "duration": "7-11 hours",
         "shortDescription": "Best premium quality full detailing service in Chicago. Period.",
-        "longDescription": "Combines INTERIOR Detailing Package ($225-285) & EXTERIOR Detailing ($225-285) with a FREE Engine cleaning ($75 value) for savings of $170-250 INTERIOR: ✔Full compressed air blow-out ✔Brushing & shampooing of carpets, seats, mats, headliner, belts ✔All panels, cracks & crevices are detailed ✔Leather is treated with conditioner EXTERIOR: ✔Foam pre-soak & hand wash ✔Clay Bar & IronX treatment ✔Microfiber & chamois drying ✔1-step buff & 2-step polish to restore the shine ✔Synthetic sealant for protection",
+        "longDescription": "✔Combines INTERIOR Detailing Package ($255-295) & EXTERIOR Detailing ($255-295) with a FREE Engine cleaning ($75 value) for savings of $200+ ✔INTERIOR: Full compressed air blow-out, Brushing & shampooing of carpets, seats, mats, headliner, belts. All panels, cracks & crevices are detailed. Leather is treated with conditioner ✔EXTERIOR: Foam pre-soak & hand wash, Clay Bar & IronX treatment, Microfiber & chamois drying, 1-step buff & 2-step polish to restore the shine, Synthetic sealant for protection",
         "images": [
           "/images/wash_detail/Showroom_Detail/Best_Hand_Wash_Chicago(2).jpg",
           "/images/wash_detail/Showroom_Detail/Chevrolet-exterior_detailing-Chicago.jpg",
@@ -378,7 +453,7 @@
         ]
       },
       {
-        "id": 180,
+        "id": 106,
         "name": "Deluxe Wash",
         "prices": [40, 45, 50],
         "duration": "2-4 hours",
@@ -1161,11 +1236,11 @@
       },
       {
         "id": 19,
-        "name": "Independent Shops' Estimate",
+        "name": "Auto Body Shop",
         "prices": [35],
         "duration": "",
         "shortDescription": "We can take your car & take it to up to 3 body shops to collect estimates for you to save you time",
-        "longDescription": "✔To verify you are getting the best prices when it comes to vehicle repairs or maintenance, we will gladly do research for you and take it to couple of shops to compare ",
+        "longDescription": "✔Fender-bender & major accidents are never fun. Neither is dealing with body shops ✔Worry not, we will work on an FREE estimate for you based off photos. We do it all: Dents, Bumper Repairs, Scratches, Major and Minor Accidents ✔We pick up your vehicle once all work is approved and we are ready to start - ensuring the fastest turn-around times in Chicago ✔Work on all makes and models & with all insurance companies",
         "images": [
           "/images/body_shop/Auto_Body_Shop/Repair-Estimate.jpg",
           "/images/body_shop/Auto_Body_Shop/alignment_laser_new.jpeg",
@@ -1436,7 +1511,7 @@
         "prices": [750, 1100, 1800],
         "duration": "",
         "shortDescription": "Please fill out this form and we'll email or call you to answer all your questions",
-        "longDescription": "✔Ceramic is more of an aesthetic choice with some water repellent qualities✔Will gladly walk you through the process! ",
+        "longDescription": "✔Ceramic is more of an aesthetic choice with some water repellent qualities✔Will gladly walk you through the process! ✔Ceramic is only as good as the paint corrected under it - so the price varies on exterior work needed and the coat you pick ✔Can't decide between getting PPF or Ceramic in Chicago? As a place that has some of the most experienced paint correction specialist in Chicago, we will gladly answer all your questions and clear our the misconceptions ✔ We will walk you through the process and pros & cons (even if you don't decide to give us your business). So ask away!",
         "images": [
           "/images/protection_aesthetics/Ceramic_Coating/20210320_155912.jpg",
           "/images/protection_aesthetics/Ceramic_Coating/20210320_155917.jpg",
