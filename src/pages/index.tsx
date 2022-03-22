@@ -76,9 +76,13 @@ const Home: NextPage = () => {
         }}
       >
         {loading && <CircularProgress />}
-        {reviewsArray.map((singleReview, index) => (
-          <CustomReviewCard key={`review-id-${index}`} review={singleReview} />
-        ))}
+        {Array.isArray(reviewsArray) &&
+          reviewsArray.map((singleReview, index) => (
+            <CustomReviewCard
+              key={`review-id-${index}`}
+              review={singleReview}
+            />
+          ))}
       </Box>
 
       <StyledFab
