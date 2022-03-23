@@ -14,11 +14,18 @@ const AddButton: FC<ServiceObject> = ({ serviceObject }) => {
   const addToCartHandler = async (product: ServiceType) => {
     dispatch({ type: 'CART_ADD_ITEM', payload: product });
   };
+  const removeFromCartHandler = async (product: ServiceType) => {
+    dispatch({ type: 'CART_REMOVE_ITEM', payload: product });
+  };
 
   const inCart = cartItems.find(({ id }) => id === serviceObject.id);
   if (inCart) {
     return (
-      <StyledEmotionButton bgColor="#339c53" textColor="#fff">
+      <StyledEmotionButton
+        handleClick={() => removeFromCartHandler(serviceObject)}
+        bgColor="#339c53"
+        textColor="#fff"
+      >
         Added <CheckCircleOutlinedIcon fontSize="small" />
       </StyledEmotionButton>
     );

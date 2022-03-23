@@ -25,7 +25,6 @@ export const StyledButton = styled(Button)<IButtonProps>(
     textTransform: 'uppercase',
     borderRadius: '4px',
     padding: '5px',
-    margin: '5px',
     gap: '3px',
     backgroundColor,
     color: fontColor,

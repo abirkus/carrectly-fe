@@ -1,28 +1,37 @@
 import * as React from 'react';
 import Image from 'next/image';
-import { List, ListItem, Divider } from '@mui/material';
+import { List, ListItem, Divider, ListItemIcon } from '@mui/material';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import StyledCarousel from '../StyledCarousel/StyledCarousel';
 import { ModalProps } from '../../../utils/types';
 import AddButton from '../Buttons/AddButton';
-const wrapper = {
-  position: 'absolute' as const,
+import { styled } from '@mui/system';
+
+const ModalWrapper = styled('div')(({ theme }) => ({
+  position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: '60vw',
-  bgcolor: 'background.paper',
-  boxShadow: 24,
-};
+  display: 'flex',
+  flexDirection: 'column',
+  maxWidth: '1000px',
+  width: '50vw',
+  maxHeight: '90vh',
+  backgroundColor: 'white',
+  boxShadow: '1px 3px 8px 0px rgb(0 0 0 / 20%)',
+  [theme.breakpoints.down('md')]: {
+    width: '80vw',
+  },
+}));
 
-const carouselBackground = {
-  width: 700,
-  height: 425,
+const ImageWrapper = styled('div')(() => ({
   position: 'relative',
-  background: 'rgba(0,0,0,1)',
-};
+  backgroundColor: 'black',
+  width: '70%',
+  aspectRatio: '16/9',
+}));
 
 export default function ServiceDetailsModal({
   open,
@@ -30,67 +39,116 @@ export default function ServiceDetailsModal({
   serviceDetails,
 }: ModalProps) {
   return (
-    <div>
-      <Modal
-        open={open}
-        onClose={onClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={wrapper}>
-          <StyledCarousel autoplay dots={false} arrows arrowSpacing="15px">
-            {serviceDetails.images.map((image, i) => (
-              <Box sx={carouselBackground} key={`card-slider-id-${i}`}>
-                <Image
-                  src={image}
-                  alt={serviceDetails.name}
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </Box>
-            ))}
-          </StyledCarousel>
-          <Box sx={{ padding: '20px' }}>
-            <Box sx={{ padding: '0 0 20px 0' }}>
-              <Typography id="modal-modal-title" variant="h6" component="h2">
-                {serviceDetails.name}
-              </Typography>
-              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                {serviceDetails.longDescription.split('✔').map((el: string) => {
-                  if (el.length > 1) {
-                    return <div key={el}>{`✔ ${el}`}</div>;
-                  }
-                })}
-              </Typography>
-            </Box>
-            <Divider />
-            <Box
-              display="flex"
-              flexDirection="row"
-              flexWrap="wrap"
-              justifyContent="space-between"
-            >
-              <Typography sx={{ mt: 2 }}>Price:</Typography>
-              <List sx={{ display: 'flex', flexDirection: 'row' }}>
-                {serviceDetails.prices &&
-                  serviceDetails.prices.map((price, index) => (
-                    <ListItem key={`price-variant-${index}`}>${price}</ListItem>
-                  ))}
-              </List>
+    <Modal
+      open={open}
+      onClose={onClose}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+      <ModalWrapper>
+        <StyledCarousel autoplay dots={false} arrows arrowSpacing="15px">
+          {serviceDetails.images.map((image, i) => (
+            <ImageWrapper key={`card-slider-id-${i}`}>
+              <Image
+                src={image}
+                alt={serviceDetails.name}
+                layout="fill"
+                objectFit="contain"
+              />
+            </ImageWrapper>
+          ))}
+        </StyledCarousel>
+        <Box
+          sx={(theme) => ({
+            padding: '5px 10px',
+            display: 'flex',
+            flexDirection: 'column',
+            overflow: 'auto',
+            [theme.breakpoints.down('sm')]: { padding: '5px' },
+          })}
+        >
+          <Typography
+            id="modal-modal-title"
+            component="h2"
+            color="primary"
+            sx={(theme) => ({
+              fontSize: '1.5rem',
+              textTransform: 'uppercase',
+              fontWeight: 600,
+              opacity: 0.8,
+              [theme.breakpoints.down('sm')]: {
+                textAlign: 'center',
+              },
+            })}
+          >
+            {serviceDetails.name}
+          </Typography>
 
-              {/* need to update once we have the hours field in the data */}
-              {false ? (
-                <Typography sx={{ mt: 2 }}>
-                  Time: ${serviceDetails.duration}
-                </Typography>
-              ) : (
-                <div />
+          <List
+            id="modal-modal-description"
+            sx={{ overflow: 'auto', padding: 0, fontSize: '1.5rem' }}
+          >
+            {serviceDetails.longDescription
+              .split('✔')
+              .map((description, index) => {
+                if (description.length > 1) {
+                  return (
+                    <ListItem
+                      key={`${serviceDetails.name}-${index}`}
+                      alignItems="flex-start"
+                      sx={(theme) => ({
+                        paddingLeft: 0,
+                        paddingRight: 0,
+                        [theme.breakpoints.down('md')]: { paddingTop: 0 },
+                      })}
+                    >
+                      <ListItemIcon
+                        sx={{
+                          minWidth: 0,
+                          paddingRight: '5px',
+                          margin: 0,
+                          lineHeight: 1,
+                        }}
+                      >
+                        &#9745;
+                      </ListItemIcon>
+                      <Typography>{description}</Typography>
+                    </ListItem>
+                  );
+                }
+              })}
+          </List>
+
+          <Divider sx={{ marginTop: '10px', marginBottom: '5px' }} />
+          <Box
+            display="flex"
+            flexDirection="row"
+            justifyContent="space-between"
+            alignItems="center"
+            padding="5px 10px"
+          >
+            <Box display="flex" columnGap="50px" flexWrap="wrap">
+              {serviceDetails.prices && (
+                <Box display="flex" gap="10px">
+                  <Typography fontWeight={600}>Price:</Typography>
+
+                  {serviceDetails.prices.map((price, index) => (
+                    <Typography key={`price-${index}`}>${price}</Typography>
+                  ))}
+                </Box>
               )}
-              <AddButton serviceObject={serviceDetails} />
+
+              {serviceDetails.duration && (
+                <Box display="flex" gap="10px">
+                  <Typography fontWeight={600}>Time:</Typography>
+                  <Typography>{serviceDetails.duration}</Typography>
+                </Box>
+              )}
             </Box>
+            <AddButton serviceObject={serviceDetails} />
           </Box>
         </Box>
-      </Modal>
-    </div>
+      </ModalWrapper>
+    </Modal>
   );
 }
