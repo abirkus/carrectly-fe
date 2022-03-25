@@ -1,6 +1,7 @@
 // nextjs example https://github.com/vercel/next.js/tree/canary/examples/with-google-analytics
 
 export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
+export const GA_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS;
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url: URL) => {
