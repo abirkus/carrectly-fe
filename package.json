@@ -20,6 +20,8 @@
     "@mui/material": "^5.2.4",
     "@mui/styles": "^5.2.3",
     "@mui/x-data-grid": "^5.5.0",
+    "@types/facebook-pixel": "^0.0.24",
+    "@types/gtag.js": "^0.0.10",
     "antd": "^4.17.3",
     "axios": "^0.25.0",
     "google-map-react": "^2.1.10",
