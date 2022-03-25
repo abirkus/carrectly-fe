@@ -1,6 +1,5 @@
-import styled from '@emotion/styled';
-import { Box } from '@mui/material';
 import React, { useState, FC } from 'react';
+import { Box } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import BgImage from '../BgImage/BgImage';
 import StyledEmotionButton from '../Buttons/StyledEmotionButton';
@@ -8,20 +7,21 @@ import InfoIcon from '@mui/icons-material/Info';
 import ServiceDetialsModal from '../Modal/ServiceDetailsModal';
 import AddButton from '../Buttons/AddButton';
 import { ServiceObject } from '../../../utils/types';
+import { styled } from '@mui/system';
 
-//interfaces are used for objects and classes
-//types are used for
-
-const Title = styled.div`
-  font-style: normal;
-  font-weight: bold;
-  font-size: 1.8rem;
-  text-transform: uppercase;
-  color: #fff;
-  text-align: left;
-  margin: 0;
-  z-index: 15;
-`;
+const Title = styled('div')(({ theme }) => ({
+  fontStyle: 'normal',
+  fontWeight: 'bold',
+  fontSize: '1.8rem',
+  textTransform: 'uppercase',
+  color: 'white',
+  textAlign: 'left',
+  margin: 0,
+  zIndex: 15,
+  [theme.breakpoints.down(400)]: {
+    fontSize: '1.4rem',
+  },
+}));
 
 const ServiceCard: FC<ServiceObject> = ({ serviceObject }) => {
   const [open, setOpen] = useState(false);
