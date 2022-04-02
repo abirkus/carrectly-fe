@@ -12,16 +12,16 @@ export const pageview = (url: URL) => {
 
 type GTagEvent = {
   action: string;
-  category: string;
-  label: string;
   value: number;
+  currency?: string;
+  send_to?: string;
 };
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/events
-export const event = ({ action, category, label, value }: GTagEvent) => {
+export const event = ({ action, send_to, value, currency }: GTagEvent) => {
   window.gtag('event', action, {
-    event_category: category,
-    event_label: label,
+    send_to: send_to,
     value: value,
+    currency: currency,
   });
 };

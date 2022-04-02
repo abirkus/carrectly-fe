@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import Layout from '../components/Layout/Layout';
 import { Store } from '../../utils/Store';
@@ -9,13 +9,22 @@ import ServicesDataTable from 'components/Table/ServicesDataTable';
 import cartTableColumns from 'components/Table/Columns/CartServicesColumns';
 import { CardShadow } from 'components/StyledBaseComponents/CardShadow';
 import { totalPrice } from '../../utils/helperFunctions';
-import Script from 'next/script';
+import * as gtag from '../lib/gtag';
 
 function CartScreen() {
   const router = useRouter();
   const { state } = useContext(Store);
 
   const { cartItems, carSize } = state;
+
+  useEffect(() => {
+    gtag.event({
+      action: 'conversion',
+      send_to: 'AW-877045767/7ZVOCJCq_K4DEIfQmqID',
+      value: 5.0,
+      currency: 'USD',
+    });
+  }, []);
 
   const checkoutHandler = () => {
     router.push('/orderdetails');
@@ -38,19 +47,6 @@ function CartScreen() {
 
   return (
     <Layout title="Shopping Cart">
-      <Script
-        id="gads-tracking-conversion"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-          gtag('event', 'conversion', {
-            'send_to': 'AW-877045767/7ZVOCJCq_K4DEIfQmqID',
-            'value': 5.0,
-            'currency': 'USD'
-        });
-          `,
-        }}
-      />
       <StepperComponent activeStep={0} />
 
       <Grid container spacing={3} padding="20px">
@@ -60,31 +56,17 @@ function CartScreen() {
               borderRadius: '4px',
             }}
           >
-            <ServicesDataTable
-              cartItemsArray={cartItems}
-              columns={cartTableColumns}
-            />
+            <ServicesDataTable cartItemsArray={cartItems} columns={cartTableColumns} />
           </CardShadow>
-          <Button
-            onClick={servicesHandler}
-            variant="outlined"
-            color="primary"
-            fullWidth
-            sx={{ marginTop: '20px' }}
-          >
+          <Button onClick={servicesHandler} variant="outlined" color="primary" fullWidth sx={{ marginTop: '20px' }}>
             + Add more services
           </Button>
         </Grid>
         <Grid item md={4} xs={12}>
           <CardShadow>
             <List>
-              <ListItem sx={{ fontWeight: 'bold' }}>
-                Estimated total price: ${totalPrice(cartItems, priceIndex)}
-              </ListItem>
-              <ListItem sx={{ color: 'dimgray' }}>
-                Note: Total price and duration will vary based on the size of
-                your vehicle
-              </ListItem>
+              <ListItem sx={{ fontWeight: 'bold' }}>Estimated total price: ${totalPrice(cartItems, priceIndex)}</ListItem>
+              <ListItem sx={{ color: 'dimgray' }}>Note: Total price and duration will vary based on the size of your vehicle</ListItem>
               <ListItem>
                 <Button
                   onClick={checkoutHandler}
