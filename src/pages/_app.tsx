@@ -23,7 +23,6 @@ const App = (props: MyAppProps) => {
   useEffect(() => {
     const handleRouteChange = (url: URL) => {
       gtag.pageview(url);
-      gtag.pageviewAds(url);
       fbq.pageview();
     };
     router.events.on('routeChangeComplete', handleRouteChange);
