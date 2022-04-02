@@ -51,10 +51,25 @@ const App = (props: MyAppProps) => {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${gtag.GA_ADS_ID}');
             gtag('config', '${gtag.GA_TRACKING_ID}', {
               page_path: window.location.pathname,
             });
+          `,
+            }}
+          />
+          <Script
+            strategy="afterInteractive"
+            src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_ADS_ID}`}
+          />
+          <Script
+            id="gads-tracking-script"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${gtag.GA_ADS_ID}');
           `,
             }}
           />
