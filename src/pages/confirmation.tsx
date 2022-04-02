@@ -8,14 +8,8 @@ import * as gtag from '../lib/gtag';
 const Confirmation = () => {
   useEffect(() => {
     gtag.event({
-      action: 'conversion',
+      action: 'purchase',
       send_to: 'AW-877045767/7ZVOCJCq_K4DEIfQmqID',
-      value: 5.0,
-      currency: 'USD',
-    });
-    gtag.event({
-      action: 'conversion',
-      send_to: 'AW-877045767',
       value: 5.0,
       currency: 'USD',
     });

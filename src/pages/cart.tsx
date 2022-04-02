@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import dynamic from 'next/dynamic';
 import Layout from '../components/Layout/Layout';
 import { Store } from '../../utils/Store';
@@ -9,29 +9,12 @@ import ServicesDataTable from 'components/Table/ServicesDataTable';
 import cartTableColumns from 'components/Table/Columns/CartServicesColumns';
 import { CardShadow } from 'components/StyledBaseComponents/CardShadow';
 import { totalPrice } from '../../utils/helperFunctions';
-import * as gtag from '../lib/gtag';
 
 function CartScreen() {
   const router = useRouter();
   const { state } = useContext(Store);
 
   const { cartItems, carSize } = state;
-
-  useEffect(() => {
-    console.log('tracking ad conversions');
-    gtag.event({
-      action: 'conversion',
-      send_to: 'AW-877045767/7ZVOCJCq_K4DEIfQmqID',
-      value: 5.0,
-      currency: 'USD',
-    });
-    gtag.event({
-      action: 'conversion',
-      send_to: 'AW-877045767',
-      value: 5.0,
-      currency: 'USD',
-    });
-  }, []);
 
   const checkoutHandler = () => {
     router.push('/orderdetails');
