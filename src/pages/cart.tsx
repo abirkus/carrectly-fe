@@ -18,9 +18,16 @@ function CartScreen() {
   const { cartItems, carSize } = state;
 
   useEffect(() => {
+    console.log('tracking ad conversions');
     gtag.event({
       action: 'conversion',
       send_to: 'AW-877045767/7ZVOCJCq_K4DEIfQmqID',
+      value: 5.0,
+      currency: 'USD',
+    });
+    gtag.event({
+      action: 'conversion',
+      send_to: 'AW-877045767',
       value: 5.0,
       currency: 'USD',
     });
