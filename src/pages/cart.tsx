@@ -9,6 +9,7 @@ import ServicesDataTable from 'components/Table/ServicesDataTable';
 import cartTableColumns from 'components/Table/Columns/CartServicesColumns';
 import { CardShadow } from 'components/StyledBaseComponents/CardShadow';
 import { totalPrice } from '../../utils/helperFunctions';
+import Script from 'next/script';
 
 function CartScreen() {
   const router = useRouter();
@@ -37,6 +38,19 @@ function CartScreen() {
 
   return (
     <Layout title="Shopping Cart">
+      <Script
+        id="gads-tracking-conversion"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+          gtag('event', 'conversion', {
+            'send_to': 'AW-877045767/7ZVOCJCq_K4DEIfQmqID',
+            'value': 5.0,
+            'currency': 'USD'
+        });
+          `,
+        }}
+      />
       <StepperComponent activeStep={0} />
 
       <Grid container spacing={3} padding="20px">

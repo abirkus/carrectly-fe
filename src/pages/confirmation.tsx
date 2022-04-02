@@ -1,11 +1,25 @@
 import React from 'react';
+import Script from 'next/script';
 import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
 import Layout from '../components/Layout/Layout';
 
 const Confirmation = () => {
   return (
-    <Layout title="Place Order">
+    <Layout title="Confirmation">
+      <Script
+        id="gads-tracking-conversion"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+          gtag('event', 'conversion', {
+            'send_to': 'AW-877045767/7ZVOCJCq_K4DEIfQmqID',
+            'value': 5.0,
+            'currency': 'USD'
+        });
+          `,
+        }}
+      />
       <Box
         sx={{
           width: '100%',
