@@ -10,9 +10,15 @@ export const pageview = (url: URL) => {
   });
 };
 
+export const pageviewAds = (url: string) => {
+  window.gtag('config', `${GA_ADS_ID}`, {
+    page_path: url,
+  });
+};
+
 type GTagEvent = {
   action: string;
-  value: number;
+  value?: number;
   currency?: string;
   send_to?: string;
 };
