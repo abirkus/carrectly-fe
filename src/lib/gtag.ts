@@ -2,6 +2,7 @@
 
 export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
 export const GA_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS;
+export const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url: URL) => {
