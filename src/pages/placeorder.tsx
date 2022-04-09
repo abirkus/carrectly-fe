@@ -2,13 +2,7 @@ import React, { useContext, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Layout from '../components/Layout/Layout';
 import { Store } from '../../utils/Store';
-import {
-  Grid,
-  Typography,
-  CircularProgress,
-  Button,
-  ListItem,
-} from '@mui/material';
+import { Grid, Typography, CircularProgress, Button, ListItem } from '@mui/material';
 import { useRouter } from 'next/router';
 import StepperComponent from '../components/Stepper/Stepper';
 import axios from 'axios';
@@ -35,13 +29,17 @@ function PlaceOrder() {
   }
 
   const basicCartItems = cartItems.map((item: ServiceType) => {
-    const finalItemPrice =
-      item.prices.length > 2 ? item.prices[priceIndex] : item.prices[0];
+    const finalItemPrice = item.prices.length > 2 ? item.prices[priceIndex] : item.prices[0];
 
     return { id: item.id, price: finalItemPrice }; // temporarily using prices array
   });
-  const { firstName, lastName, email, phoneNumber, ...orderInfo } =
-    shippingAddress;
+
+  const failSafeCommentServicesRequested = cartItems.map((item: ServiceType) => {
+    const finalItemPrice = item.prices.length > 2 ? item.prices[priceIndex] : item.prices[0];
+    return `id: ${item.id}, serviceName: ${item.name} price: ${finalItemPrice}`; // temporarily using prices array
+  });
+
+  const { firstName, lastName, email, phoneNumber, customerComments, ...orderInfo } = shippingAddress;
 
   const customerInfo = {
     firstName,
@@ -53,16 +51,13 @@ function PlaceOrder() {
   const order = {
     hash: uuidv4(),
     ...orderInfo,
+    customerComments: customerComments
+      ? customerComments.concat(' ', failSafeCommentServicesRequested.join('\n'))
+      : failSafeCommentServicesRequested.join('\n'),
     carModel: orderInfo.carModel.Model,
   };
 
-  // commenting this code. after submission re-routes back to services page. confusing for the customer.
-  // useEffect(() => {
-  //   if (cartItems.length === 0) {
-  //     router.push('/cart');
-  //   }
-  // }, [cartItems.length, router]);
-
+  console.log('order info', order);
   const placeOrderHandler = async () => {
     try {
       setLoading(true);
@@ -97,15 +92,8 @@ function PlaceOrder() {
               Order Summary
             </Typography>
 
-            <ServicesDataTable
-              cartItemsArray={cartItems}
-              columns={orderSummaryColumns}
-            />
-            <Grid
-              container
-              padding="10px"
-              borderTop="solid 1px rgb(224, 224, 224)"
-            >
+            <ServicesDataTable cartItemsArray={cartItems} columns={orderSummaryColumns} />
+            <Grid container padding="10px" borderTop="solid 1px rgb(224, 224, 224)">
               <Grid item xs={6}>
                 <Typography>
                   <strong>Total price based on your vehicle size:</strong>
@@ -118,13 +106,7 @@ function PlaceOrder() {
               </Grid>
             </Grid>
           </CardShadow>
-          <Button
-            onClick={placeOrderHandler}
-            variant="contained"
-            color="primary"
-            fullWidth
-            sx={{ marginTop: '20px' }}
-          >
+          <Button onClick={placeOrderHandler} variant="contained" color="primary" fullWidth sx={{ marginTop: '20px' }}>
             Place Order
           </Button>
           {loading && (
@@ -132,20 +114,12 @@ function PlaceOrder() {
               <CircularProgress />
             </ListItem>
           )}
-          <Button
-            onClick={editServicesHandler}
-            variant="outlined"
-            color="primary"
-            fullWidth
-            sx={{ marginTop: '10px' }}
-          >
+          <Button onClick={editServicesHandler} variant="outlined" color="primary" fullWidth sx={{ marginTop: '10px' }}>
             Edit Services
           </Button>
           <Typography marginTop="10px" fontSize="0.9rem">
-            Once the order is placed we will reach out to you via text to
-            confirm order details and to coordinate vehicle pickup times. Due to
-            increasingly high service volume, please allow a few hours for our
-            logistics team to process your booking request.
+            Once the order is placed we will reach out to you via text to confirm order details and to coordinate vehicle pickup times. Due to
+            increasingly high service volume, please allow a few hours for our logistics team to process your booking request.
           </Typography>
         </Grid>
       </Grid>

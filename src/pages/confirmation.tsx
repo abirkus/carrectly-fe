@@ -7,12 +7,6 @@ import * as gtag from '../lib/gtag';
 
 const Confirmation = () => {
   useEffect(() => {
-    gtag.event({
-      action: 'purchase',
-      send_to: 'AW-877045767',
-      value: 5.0,
-      currency: 'USD',
-    });
     gtag.pageviewAds('/confirmation');
   }, []);
 

@@ -11,6 +11,7 @@ import { StoreProvider } from '../../utils/Store';
 import { useRouter } from 'next/router';
 import * as gtag from '../lib/gtag';
 import * as fbq from '../lib/fpixel';
+import TagManager from 'react-gtm-module';
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
@@ -21,6 +22,7 @@ interface MyAppProps extends AppProps {
 const App = (props: MyAppProps) => {
   const router = useRouter();
   useEffect(() => {
+    TagManager.initialize({ gtmId: `${gtag.GTM_ID}` });
     const handleRouteChange = (url: URL) => {
       gtag.pageview(url);
       fbq.pageview();
