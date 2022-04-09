@@ -54,7 +54,6 @@ const ControlledDatePickerField: React.FC<ControlledDatePickerFieldProps> = ({
         return accumulator;
       }, []);
 
-      console.log('disabled time slots inside callback', disabledTimeSlots);
       if (date && date.isSame(startDate, 'day')) {
         return {
           disabledHours: () => [...range(0, startDate.clone().add(150, 'minutes').startOf('hour').hour()), ...range(18, 24), ...disabledTimeSlots],
