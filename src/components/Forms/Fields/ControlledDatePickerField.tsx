@@ -3,6 +3,7 @@ import moment, { Moment } from 'moment';
 import { Control, Controller, FieldErrors } from 'react-hook-form';
 import { DatePicker } from 'antd';
 import { Box, Typography } from '@mui/material';
+import { timeSlot } from 'apiWrappers/schedulingApi';
 interface ControlledDatePickerFieldProps {
   fieldName: string;
   fieldLabel: string;
@@ -11,6 +12,7 @@ interface ControlledDatePickerFieldProps {
   required?: boolean;
   disabled?: boolean;
   startDate?: Moment;
+  disabledTimes?: timeSlot[];
 }
 
 function range(start: number, end: number) {
@@ -29,6 +31,7 @@ const ControlledDatePickerField: React.FC<ControlledDatePickerFieldProps> = ({
   required,
   startDate = moment(),
   disabled,
+  disabledTimes = [],
 }) => {
   const disabledDate = useCallback(
     (date: Moment) => {
@@ -44,17 +47,25 @@ const ControlledDatePickerField: React.FC<ControlledDatePickerFieldProps> = ({
 
   const disabledTime = useCallback(
     (date: Moment | null) => {
+      const disabledTimeSlots = disabledTimes.reduce((accumulator: number[], timeSlot) => {
+        if (date && date.isSame(timeSlot.hour, 'day')) {
+          accumulator.push(Number(moment(timeSlot.hour).format('HH')));
+        }
+        return accumulator;
+      }, []);
+
+      console.log('disabled time slots inside callback', disabledTimeSlots);
       if (date && date.isSame(startDate, 'day')) {
         return {
-          disabledHours: () => [...range(0, startDate.clone().add(150, 'minutes').startOf('hour').hour()), ...range(18, 24)],
+          disabledHours: () => [...range(0, startDate.clone().add(150, 'minutes').startOf('hour').hour()), ...range(18, 24), ...disabledTimeSlots],
         };
       }
 
       return {
-        disabledHours: () => [...range(0, 8), ...range(18, 24)],
+        disabledHours: () => [...range(0, 8), ...range(18, 24), ...disabledTimeSlots],
       };
     },
-    [startDate]
+    [startDate, disabledTimes]
   );
 
   return (
